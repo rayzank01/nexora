@@ -5,6 +5,7 @@ channel publishing, Telegraph articles and private support. This is a new standa
 project; it does not depend on an existing Telegram bot repository.
 
 **Source repository:** [rayzank01/nexora](https://github.com/rayzank01/nexora).
+The repository and delivered folder/ZIP include the source, documentation and tests.
 Implemented project with mock-based tests. No real bot token is included, no live
 Telegram actions have been tested, and no hosting deployment has been performed.
 Register the display name **Nexora** with BotFather; its unique bot
@@ -46,6 +47,16 @@ python -m nexora
 Run exactly **one instance** per token/database. The process holds a database instance
 lock. Use local disk for SQLite, not a network share. This deployment uses long polling;
 an existing webhook causes startup to stop rather than silently remove it.
+
+## Free hosting decision
+
+**Do not deploy this SQLite/polling build unchanged on Render Free.** The
+[free-hosting guide](docs/FREE_HOSTING.md) compares the verified provider constraints and
+a zero-hosting-fee VM candidate. Local safeguards now stop an unsafe Render startup before
+creating a database or contacting Telegram. An optional Linux service configuration and
+worker-readiness endpoint are included; no cloud resource or live bot has been started.
+The hosting choice is awaiting the user, and no delayed/missed scheduling behavior has
+been accepted on their behalf.
 
 ## First group setup
 
@@ -107,7 +118,29 @@ For support, create a **private staff group**, set `SUPPORT_CHAT_ID` and numeric
 `SUPPORT_ADMIN_IDS`, and restart Nexora. Only put authorized support staff in that group:
 all group members can read copied tickets. A user must open the bot and send `/support`
 before their messages are relayed. Staff reply to a ticket header or copied message in
-the staff group. Broadcasts reach only users who explicitly chose `/subscribe`.
+the staff group. Support-team broadcasts reach only users who explicitly chose `/subscribe`.
+
+## Super-admin broadcasts
+
+Set your numeric Telegram ID in `SUPER_ADMIN_IDS` privately on the host, then restart.
+Send `/myid` privately to the running bot to see your ID. This role is separate from
+group administrators and support staff; leave the environment value empty to disable it.
+
+```text
+/superadmin
+/announce all Nexora service announcement
+/announce_send CAMPAIGN_ID CONFIRM
+/announce_status CAMPAIGN_ID
+```
+
+Choose `users`, `groups` or `all`; reply to media with `/announce all` for attachments.
+The bot previews the content and eligible recipient count before anything is queued.
+`/announce_cancel CAMPAIGN_ID` cancels remaining deliveries. Group delivery requires
+Nexora to still be an admin. Service announcements can reach observed private users who
+have contacted the bot and have not used `/unsubscribe`; `/start` explains this, and
+`/subscribe` opts back in. Support marketing/news broadcasts retain explicit opt-in.
+Telegram does not provide a complete historical subscriber/group directory, so recipients
+are registered as the bot receives their messages or group membership updates.
 
 ## Verify locally
 
@@ -129,12 +162,14 @@ contact real people, or moderate real members. See [verification notes](docs/VER
 | `nexora/transport.py` | Telegram and third-party HTTP transport, sanitized errors |
 | `nexora/web.py`, `dashboard.html` | Scoped dashboard, API and web verification |
 | `nexora/maintenance.py` | Read-only diagnostics and consistent backups |
+| `nexora/preflight.py`, `health.py` | Offline hosting checks and worker readiness |
+| `deploy/nexora.service` | Optional Linux service for a reviewed always-on host |
 | `tests/` | Security and behavior regression tests |
 | [COMMANDS](docs/COMMANDS.md) | Complete command syntax and configuration |
 | [FEATURES](docs/FEATURES.md) | Reference feature coverage and actual limits |
 | [DEPLOYMENT](docs/DEPLOYMENT.md) | Docker, HTTPS, storage, recovery, credentials |
+| [FREE HOSTING](docs/FREE_HOSTING.md) | Current free-plan limits and unresolved host decision |
 | [SOURCES](docs/SOURCES.md) | Official documentation checked during construction |
 
-The public repository contains source, documentation and tests. Keep `.env`, database
-files and backups private; `.gitignore` excludes them. Publishing this source does not
-activate or deploy the Telegram bot.
+Keep `.env`, database files and backups private; `.gitignore` excludes them.
+Publishing source does not activate or deploy the Telegram bot.

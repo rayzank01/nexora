@@ -1,0 +1,36 @@
+# Optional Linux/systemd service. Review docs/FREE_HOSTING.md before installation.
+# Assumes source and its Python virtualenv at /opt/nexora, private env at /etc/nexora.env.
+# No cloud resources are provisioned by this file.
+[Unit]
+Description=Nexora Telegram bot
+Wants=network-online.target
+After=network-online.target
+StartLimitIntervalSec=300
+StartLimitBurst=5
+
+[Service]
+Type=simple
+User=nexora
+Group=nexora
+WorkingDirectory=/opt/nexora
+EnvironmentFile=/etc/nexora.env
+Environment=DATABASE_PATH=/var/lib/nexora/nexora.sqlite3
+Environment=PERSISTENT_DATA_DIR=/var/lib/nexora
+Environment=HTTP_HOST=127.0.0.1
+Environment=HTTP_PORT=8080
+Environment=PYTHONDONTWRITEBYTECODE=1
+ExecStart=/opt/nexora/.venv/bin/python -m nexora
+Restart=on-failure
+RestartSec=10
+TimeoutStopSec=90
+StateDirectory=nexora
+StateDirectoryMode=0700
+UMask=0077
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/var/lib/nexora
+
+[Install]
+WantedBy=multi-user.target
