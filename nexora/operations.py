@@ -1,4 +1,5 @@
 """Persisted publishing, community events, support and personal-data operations."""
+from . import plans
 import json
 import secrets
 import time
@@ -30,6 +31,7 @@ class Operations:
         content = self.db.get(scope, 'drafts', draft)
         if not content:
             raise ValueError('Unknown draft in this destination')
+        plans.job(self.e,chat,True)
         spec = {'zone': self.e.settings(chat)['timezone'], 'time': clock, 'days': days}
         due = next_run(spec, time.time())
         return self.db.job(chat, 'publish', due, {'actor': user, 'scope': scope, 'draft': draft,
@@ -58,6 +60,7 @@ class Operations:
         user = m['from']['id']
         chat = self.db.get(user, 'session', 'channel')
         self.e.require(chat, user, 'publish', native=True)
+        plans.require(self.e,chat)
         reply = m.get('reply_to_message', {})
         group = reply.get('media_group_id')
         items = self.db.get(user, 'albums', group, {}) if group else {}
@@ -88,6 +91,8 @@ class Operations:
         old = self.db.get(chat, 'community_events', key)
         if event_id and not old:
             raise ValueError('Unknown event')
+        active=sum(v.get('status')=='active' and v.get('at',0)>time.time() for k,v in self.db.items(chat,'community_events').items() if k!=key)
+        plans.count(self.e,chat,'events',active+1)
         event = {'title': title, 'at': at, 'actor': user, 'revision': secrets.token_hex(5),
                  'status': 'active', 'rsvp': (old or {}).get('rsvp', {})}
         self.db.put(chat, 'community_events', key, event)

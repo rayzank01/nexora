@@ -1,4 +1,5 @@
 """Authenticated multi-group console endpoints; no Mini App init-data trust."""
+from . import plans
 import json
 import secrets
 import time
@@ -74,8 +75,10 @@ def mutate(engine, access, data):
         if not 1<=days<=3650:raise ValueError('Invalid retention')
         db.put(chat,'extensions','retention',days)
     elif action=='template_save':
+        plans.require(engine,chat,'ultra')
         db.put(uid,'templates',str(change['name'])[:40],{k:v for k,v in engine.settings(chat).items() if k in SAFE_TEMPLATE})
     elif action=='template_apply':
+        plans.require(engine,chat,'ultra')
         values=db.get(uid,'templates',change['name'])
         if not values or not set(values)<=SAFE_TEMPLATE:raise ValueError('Unknown template')
         for key,value in values.items():engine.validate_setting(chat,uid,key,value)

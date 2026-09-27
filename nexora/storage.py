@@ -86,6 +86,8 @@ class Store:
                     scope='community:'+str(new)
                 if scope=='billing' and kind in ('orders','charges') and value.get('chat')==old:
                     value['chat']=new
+                if scope=='billing' and kind=='orders' and 'groups' in value:
+                    value['groups']=[new if group==old else group for group in value['groups']]
                 if kind=='community_inboxes':
                     if key==str(old):key=str(new)
                     if value==old:value=new

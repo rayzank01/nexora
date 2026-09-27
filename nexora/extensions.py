@@ -1,4 +1,5 @@
 """Scoped, expiring interactive control plane and community safety features."""
+from . import plans
 import difflib
 import hashlib
 import json
@@ -79,6 +80,7 @@ class Extensions:
         self.e.require(chat,user,native=True)
         back = [('Back','page',{'page':'home','topic':topic}),('Cancel','cancel',{})]
         if page == 'home':
+            self.e.say(dest,'Free groups may receive operator advertisements. Pro and Ultra groups are excluded from ad campaigns. /plans compares packages.')
             choices = [(name,'page',{'page':key,'topic':topic}) for name,key in
                 [('Setup wizard','setup'),('Moderation & raid','raid'),('Topics & rules','topics'),
                  ('Templates','templates'),('Publishing calendar','calendar'),('Events','events'),
@@ -104,6 +106,7 @@ class Extensions:
                 ('Add filter','prompt',{'kind':'filter','topic':topic}),('Remove filter','prompt',{'kind':'unfilter','topic':topic}),
                 ('Test sample without actions','prompt',{'kind':'dryrun','topic':topic}),('Restore topic inheritance','topic_reset',{'topic':topic})]+back)
         elif page == 'templates':
+            plans.require(self.e,chat,'ultra')
             self.buttons(dest,user,chat,'Templates copy policy only; greetings, rules, notes and secrets stay private.',[
                 ('Save policy template','prompt',{'kind':'template_save'}),('Apply a template','prompt',{'kind':'template_apply'}),
                 ('Apply to several groups','prompt',{'kind':'bulk_template'})]+back)
@@ -179,7 +182,7 @@ class Extensions:
                 if not session['reusable']:
                     self.db.delete('global','ui_tokens',token)
                 chat, action, p = session['chat'], session['action'], session['data']
-                member_actions = {'rsvp','privacy_export','privacy_delete_confirm','privacy_delete','privacy_noai','appeal_submit','cancel','billing_cancel','billing_refund','choose_groups','privacy_menu','private_language'}
+                member_actions = {'rsvp','privacy_export','privacy_delete_confirm','privacy_delete','privacy_noai','appeal_submit','cancel','billing_cancel','billing_refund','choose_groups','privacy_menu','private_language','operator_groups','operator_ads','package_cancel','package_buy'}
                 staff_actions = {'ticket_assign','ticket_priority','ticket_note','ticket_close'}
                 if action in staff_actions:
                     if user not in self.e.config.support_admins:
@@ -204,6 +207,16 @@ class Extensions:
         elif action=='private_language':
             if dest!=user:raise PermissionError('Use /help for private commands')
             self.command({'chat':{'id':dest,'type':'private'},'from':{'id':user}},'language',p['language'])
+        elif action in ('operator_groups','operator_ads'):
+            if dest!=user or not self.e.superadmin.allowed(user):raise PermissionError('Private super-admin access required')
+            if action=='operator_groups':self.e.superadmin.command({'chat':{'id':user,'type':'private'},'from':{'id':user}},'operator_groups',str(p['page']))
+            else:self.e.say(user,'Use /advertise TEXT or reply /advertise to media. Preview the free-group audience, then /announce_send ID CONFIRM. Paid groups are excluded again at delivery.')
+        elif action=='package_offer':
+            self.command({'chat':{'id':user,'type':'private'},'from':{'id':user}},'buypro' if p['product']=='pro' else 'buyultra',str(chat))
+        elif action=='package_buy':self.billing.buy(p['product'],user,p['groups'])
+        elif action=='package_cancel':
+            if dest!=user:raise PermissionError('Open the plan menu in a private chat')
+            self.billing.cancel_package(user,p['payload'])
         elif action == 'billing_invoice':self.billing.invoice(chat,user)
         elif action == 'billing_offer':
             self.command({'chat':{'id':user,'type':'private'},'from':{'id':user}},'upgrade',str(chat))
@@ -258,6 +271,7 @@ class Extensions:
         elif action == 'filter_apply':
             self.e.validate_rule(p['rule']);topic=p.get('topic',0)
             if topic:
+                plans.require(self.e,chat,'ultra')
                 self.ensure_topic(chat,topic);rules=self.db.get(chat,'topic_rules',topic,{})
                 if rules.get(p['name'])!=p.get('before'):raise ValueError('Setting changed since preview; reopen the menu')
                 rules[p['name']]=p['rule'];self.db.put(chat,'topic_rules',topic,rules)
@@ -270,6 +284,7 @@ class Extensions:
             self.db.delete(chat,'topics',p['topic'])
             self.db.delete(chat,'topic_rules',p['topic'])
         elif action == 'template_apply':
+            plans.require(self.e,chat,'ultra')
             # Compare all target values with preview, before making any change.
             current = self.e.settings(chat)
             if any(current[k] != v for k,v in p['before'].items()):
@@ -396,6 +411,7 @@ class Extensions:
             sample=dict(m,chat={'id':chat,'type':'supergroup'},text=text,message_thread_id=p.get('topic',0))
             self.e.say(dest,self.describe(chat,self.dryrun(sample)))
         elif kind == 'template_save':
+            plans.require(self.e,chat,'ultra')
             self.db.put(user,'templates',text[:40],{k:v for k,v in self.e.settings(chat).items() if k in SAFE_TEMPLATE})
         elif kind == 'template_apply':
             values=self.db.get(user,'templates',text)
@@ -462,27 +478,28 @@ class Extensions:
             self.buttons(cid,uid,chat,'Ticket actions',[(str(staff),'community_ticket_assign',{'ticket':key,'value':staff}) for staff in config['staff']]+
                 [(priority,'community_ticket_priority',{'ticket':key,'value':priority}) for priority in ('low','normal','high','urgent')]+
                 [('Internal note','community_ticket_note',{'ticket':key}),('Close ticket','community_ticket_close',{'ticket':key})])
-        elif cmd in ('plan','upgrade'):
+        elif cmd in ('plan','upgrade','buypro','buyultra','assignplan','subscriptions'):
             if not private:raise ValueError('Open the plan menu in a private chat')
-            chat=int(args);self.e.require(chat,uid,native=True)
-            plan=self.billing.plan(chat)
-            self.e.say(uid,'Pro subscription active for this group.' if plan['plan']=='pro' else 'All features are currently available. Paid limits are not active.')
-            if plan['expires']:
-                from .calendar import local_label
-                self.e.say(uid,local_label(plan['expires'],self.e.settings(chat)['timezone']))
-            try:price,terms=self.billing.settings()
-            except ValueError:
-                self.e.say(uid,'Upgrades are disabled until the operator confirms pricing and terms.')
-                return True
-            if cmd=='upgrade':
-                self.e.say(uid,f'{price} XTR / 30 days\n'+terms)
-                self.buttons(uid,uid,chat,'Agree to the terms and create a subscription invoice?', [('Confirm','billing_invoice',{}),('Cancel','cancel',{})])
-            elif plan['plan']!='pro':self.buttons(uid,uid,chat,'Group subscription', [('Review upgrade','billing_offer',{}),('Cancel','cancel',{})])
-        elif cmd=='subscriptions':
-            if not private:raise ValueError('Open the plan menu in a private chat')
-            for payload,order in self.db.items('billing','orders').items():
-                if order['user']==uid and order.get('subscription_charge'):
-                    self.buttons(uid,uid,uid,str(order['chat']),[('Cancel renewal','billing_cancel',{'payload':payload})])
+            if cmd=='assignplan':
+                payload,group=args.split();self.billing.assign(uid,payload,int(group));self.e.say(uid,'Saved')
+            elif cmd=='subscriptions':
+                for payload,order in self.db.items('billing','orders').items():
+                    if order['user']==uid and order['status']=='active':
+                        self.e.say(uid,order.get('product','pro').upper()+' · '+str(order.get('groups',[order['chat']]))+'\nPackage ID: '+payload+
+                            ('\nAssign unused slots: /assignplan '+payload+' GROUP_ID' if order.get('product')=='pro' else ''))
+                        self.buttons(uid,uid,uid,'Cancel this package? Payments made within seven days are refunded in Stars; refunded access ends.', [('Confirm cancellation','package_cancel',{'payload':payload}),('Back','cancel',{})])
+            elif cmd in ('buypro','buyultra'):
+                product='pro' if cmd=='buypro' else 'ultra';groups=[int(v.strip()) for v in args.split(',')]
+                price,terms=self.billing.package_settings(product)
+                for group in groups:self.e.require(group,uid,native=True)
+                self.e.say(uid,product.upper()+f' · {price} Stars\n'+('Up to six groups for three calendar months. One-time payment.' if product=='pro' else 'One group for 30 days. Automatically renews.')+'\n'+terms)
+                self.buttons(uid,uid,uid,'Agree to the terms and create a subscription invoice?', [('Confirm','package_buy',{'product':product,'groups':groups}),('Cancel','cancel',{})])
+            else:
+                chat=int(args);self.e.require(chat,uid,native=True)
+                self.e.say(uid,self.billing.plan(chat)['plan'].upper()+'\nFree: 1 recurring message. Pro: 6 groups / 3 months, 10 recurring messages per group. Ultra: 1 group / 30 days, 50 recurring messages.\nFree groups may receive operator advertisements. Paid groups are excluded from advertising campaigns.\nPro: /buypro GROUP_ID,OTHER_GROUP_ID\nUltra: /buyultra GROUP_ID\nCompare features: /plans')
+                self.buttons(uid,uid,chat,'Choose a package',[('Pro: six groups / three months','package_offer',{'product':'pro'}),('Ultra: one group / 30 days','package_offer',{'product':'ultra'})])
+        elif cmd=='plans':
+            self.e.say(cid,'Free: essential moderation, CAPTCHA, 1 recurring message, 10 filters, 5 automatic replies, 20 notes, 5 scheduled posts, 2 events, 7-day analytics. Free groups may receive advertisements.\nPro: up to 6 groups for 3 calendar months; 10 recurring messages, 100 filters, 50 replies, 100 notes, 50 scheduled posts, 20 events, 90-day analytics, calendar/albums, automatic raids and staff support tools.\nUltra: 1 group for 30 days; 50 recurring messages, 500 filters, 250 replies, 500 notes, 250 scheduled posts, 100 events, 365-day analytics, topic overrides, impersonation alerts and templates/bulk controls.\nPaid plans exclude operator ad campaigns. Cancel within 7 days of a payment for a full Stars refund of that payment. Pro refunds remove the entire bundle. AI is separately configured, not an unlimited paid benefit.')
         elif cmd=='refund':
             if not private or not self.e.superadmin.allowed(uid):raise PermissionError('Private super-admin access required')
             self.buttons(uid,uid,uid,'Refund this payment?', [('Confirm','billing_refund',{'charge':args}),('Cancel','cancel',{})])
@@ -557,7 +574,7 @@ class Extensions:
         if not set(p['values'])<=SAFE_TEMPLATE:raise ValueError('Template contains private or unsupported settings')
         prepared={}
         for cid,before in p['before'].items():
-            chat=int(cid);self.e.require(chat,user,native=True)
+            chat=int(cid);self.e.require(chat,user,native=True);plans.require(self.e,chat,'ultra')
             current=self.e.settings(chat)
             if any(current[k]!=v for k,v in before.items()):raise ValueError('Destination settings changed since preview')
             for key,value in p['values'].items():self.e.validate_setting(chat,user,key,value)
@@ -568,6 +585,7 @@ class Extensions:
                 self.db.conn.execute('INSERT INTO events(chat,user,kind,at,data) VALUES(?,?,?,?,?)',(int(cid),user,'mod',time.time(),json.dumps({'action':'bulk_template'})))
 
     def topic(self,chat,user,topic,key,value):
+        plans.require(self.e,chat,'ultra')
         self.e.require(chat,user,native=True);self.ensure_topic(chat,topic)
         if key not in TOPIC_KEYS:raise ValueError('Setting is not topic-specific')
         self.e.validate_setting(chat,user,key,value)
@@ -605,7 +623,7 @@ class Extensions:
 
     def raid_observe(self,chat,user,text=None):
         policy=self.db.get(chat,'extensions','raid',{})
-        if not policy.get('enabled'):return
+        if not policy.get('enabled') or not plans.allows(self.e,chat):return
         now=time.time();window=policy.get('window',30)
         rows=self.db.get(chat,'extensions','raid_window',[])
         rows=[r for r in rows if r['at']>now-window][-300:]
@@ -624,7 +642,7 @@ class Extensions:
         if not self.e.admin(cid,uid):
             text=m.get('text') or m.get('caption')
             if text and len(text.strip())>=12:self.raid_observe(cid,uid,text)
-        if self.db.get(cid,'extensions','impersonation',{}).get('enabled') and not self.db.get(cid,'name_exceptions',uid):
+        if plans.allows(self.e,cid,'ultra') and self.db.get(cid,'extensions','impersonation',{}).get('enabled') and not self.db.get(cid,'name_exceptions',uid):
             name=' '.join(m['from'].get(k,'') for k in ('first_name','last_name')).strip()
             normalize=lambda s: ''.join(c for c in unicodedata.normalize('NFKC',s).casefold() if c.isalnum())
             normalized=normalize(name)

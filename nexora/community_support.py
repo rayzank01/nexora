@@ -1,3 +1,4 @@
+from . import plans
 """Explicit, isolated support routing for independent communities."""
 import secrets
 import time
@@ -115,6 +116,7 @@ class CommunitySupport:
 
     def update(self,chat,user,key,action,value=None):
         config=self.staff(chat,user);scope=self.scope(chat)
+        if action!='close':plans.require(self.e,chat)
         ticket=self.db.get(scope,'tickets',key)
         if not ticket:raise ValueError('Unknown ticket')
         if action=='assign':

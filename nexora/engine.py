@@ -1,3 +1,4 @@
+from . import plans
 import fnmatch
 import hashlib
 import html
@@ -305,6 +306,7 @@ class Engine:
     def add_rule(self, chat, user, name, rule):
         self.require(chat, user, native=True)
         self.validate_rule(rule)
+        plans.rule(self,chat,name[:40],rule)
         self.db.put(chat, 'rules', name[:40], rule)
 
     def apply_rules(self, m):
@@ -505,7 +507,8 @@ class Engine:
         return False
 
     def stats(self, chat):
-        events = self.db.sql('SELECT user,kind,at,data FROM events WHERE chat=? ORDER BY at', (chat,))
+        retention=min(self.db.get(chat,'extensions','retention',self.config.retention_days),plans.limit(self,chat,'analytics')) if plans.enabled() else self.db.get(chat,'extensions','retention',self.config.retention_days)
+        events = self.db.sql('SELECT user,kind,at,data FROM events WHERE chat=? AND at>=? ORDER BY at', (chat,time.time()-retention*86400))
         heatmap = [[0]*24 for _ in range(7)]
         days, people, logs = {}, {}, []
         zone = ZoneInfo(self.settings(chat)['timezone'])
@@ -522,7 +525,7 @@ class Engine:
                 logs.append({'user':e['user'],'at':e['at'],**json.loads(e['data'])})
         return {'chat':chat,'timezone':str(zone),'messages':sum(people.values()),'active_users':len(people),
                 'members':len(self.db.items(chat,'members')),'daily':days,'heatmap':heatmap,
-                'users':people,'moderation':logs[-200:], 'retention_days':self.config.retention_days,
+                'users':people,'moderation':logs[-200:], 'retention_days':retention,
                 'jobs':self.db.sql('SELECT id,kind,due,interval,status,error FROM jobs WHERE chat=? ORDER BY id DESC LIMIT 100',(chat,))}
 
     def target(self, m, args):
@@ -552,7 +555,7 @@ class Engine:
         private = m['chat']['type'] == 'private'
         if self.ext.command(m,cmd,args):
             return
-        if cmd in ('superadmin','announce','announce_send','announce_status','announce_cancel'):
+        if cmd in ('superadmin','operator_groups','advertise','announce','announce_send','announce_status','announce_cancel'):
             self.superadmin.command(m,cmd,args)
             return
         if cmd in ('start','help'):
@@ -677,6 +680,7 @@ class Engine:
                 content = self.capture(m.get('reply_to_message',{}), bits[1] if len(bits)>1 else '')
                 if not content.get('text') and content['kind']=='text':
                     raise ValueError('Reply to content, or /save name text')
+                plans.count(self,cid,'notes',len(set(self.db.items(cid,'notes'))|{name}))
                 self.db.put(cid,'notes',name,content)
             elif cmd in ('forget','unrule','uncustom'):
                 self.db.delete(cid,{'forget':'notes','unrule':'rules','uncustom':'custom'}[cmd],args)
@@ -957,6 +961,8 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                             interval = duration(option[6:])
                             if interval<60:
                                 raise ValueError('Minimum recurrence is 60 seconds')
+                plans.job(self,target,bool(interval))
+                if draft['kind']=='album':plans.require(self,target)
                 job = self.db.job(target,'publish',due,{'actor':uid,'scope':scope,'draft':name,'content':draft,'silent':silent},interval)
                 self.say(cid,f'Queued job {job}. Scheduled content is a snapshot; /reschedule refreshes it.')
         elif cmd == 'jobs':
@@ -970,9 +976,9 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             if not rows or json.loads(rows[0]['payload']).get('actor')!=uid:
                 raise PermissionError('This is not your job')
             if cmd == 'cancel':
-                self.db.sql("UPDATE jobs SET status='cancelled' WHERE id=? AND status='pending'",(int(name),))
+                self.db.sql("UPDATE jobs SET status='cancelled' WHERE id=? AND status IN ('pending','paused')",(int(name),))
             else:
-                if rows[0]['status'] != 'pending':
+                if rows[0]['status'] not in ('pending','paused'):
                     raise ValueError('Only pending jobs can be rescheduled')
                 due = scheduled_time(rest,self.settings(target)['timezone'])
                 if due <= time.time():
@@ -981,8 +987,9 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                 draft = self.db.get(scope,'drafts',p['draft'])
                 if not draft:
                     raise ValueError('Draft no longer exists')
+                plans.job(self,target,bool(rows[0]['interval'] or p.get('wallclock')),rows[0]['id'])
                 p['content'] = draft
-                self.db.sql('UPDATE jobs SET due=?,payload=? WHERE id=?',(due,json.dumps(p),int(name)))
+                self.db.sql("UPDATE jobs SET due=?,payload=?,status='pending',error='' WHERE id=?",(due,json.dumps(p),int(name)))
         elif cmd == 'posts':
             self.say(cid,json.dumps(self.db.items(scope,'posts'),ensure_ascii=False))
         elif cmd == 'postedit':
@@ -1080,6 +1087,8 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                     self.require(cid,p['actor'],'publish',native=True)
                     chat = self.tg.call('getChat',chat_id=cid)
                     self.bot_right(cid,'can_post_messages' if chat['type']=='channel' else 'can_delete_messages')
+                    plans.job(self,cid,bool(j['interval'] or p.get('wallclock')),j['id'])
+                    if p['content']['kind']=='album':plans.require(self,cid)
                     sent = self.send_content(cid,p['content'],silent=p.get('silent',False))
                     self.db.put(p['scope'],'posts',sent['message_id'],{'kind':p['content']['kind'],'job':j['id']})
                     for mid,media in zip(sent.get('album_messages',[]),p['content'].get('media',[])):
@@ -1101,6 +1110,8 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                     self.db.sql("UPDATE jobs SET status='pending',due=? WHERE id=?",(due,j['id']))
                 else:
                     self.db.sql("UPDATE jobs SET status='done' WHERE id=?",(j['id'],))
+            except plans.PlanLimit as exc:
+                self.db.sql("UPDATE jobs SET status='paused',error=? WHERE id=?",(str(exc)[:300],j['id']))
             except RemoteError as exc:
                 if exc.code==429 and exc.retry_after:
                     self.db.sql("UPDATE jobs SET status='pending',due=?,error='Rate limited' WHERE id=?",(time.time()+exc.retry_after+1,j['id']))

@@ -1,5 +1,12 @@
 # Verification record
 
+## Packages and owner tools follow-up
+
+174 automated tests pass, including 19 new package/operator cases. See
+[Packages](PACKAGES.md) for exact behavior, controls, limits and activation requirements.
+No live payment, refund or advertisement was sent.
+
+
 ## Public bot expansion — 2026-09-27
 
 **155 local automated tests passed** on Windows/Python 3.14, preserving all 88 prior

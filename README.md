@@ -6,12 +6,16 @@ channel publishing, Telegraph articles and private support. This is a new standa
 project; it does not depend on an existing Telegram bot repository.
 
 **Source repository:** [rayzank01/nexora](https://github.com/rayzank01/nexora).
-This source release contains the 27 September expansion, documentation and 155 tests.
+This source release contains the 27 September expansion, documentation and 174 tests.
 The downloadable folder/ZIP mirrors the released source. Deployment remains pending. See the [complete feature/setup audit](docs/EXPANSION.md).
 Implemented project with mock-based tests. No real bot token is included, no live
 Telegram actions have been tested, and no hosting deployment has been performed.
 Register the display name **Nexora** with BotFather; its unique bot
 username depends on Telegram availability.
+
+See [packages, refunds and owner advertising](docs/PACKAGES.md) for the new Pro bundle,
+Ultra subscription, group list and free-group campaigns. Checkout remains disabled
+until exact Stars amounts and private host settings are provided.
 
 ## Start on Windows
 

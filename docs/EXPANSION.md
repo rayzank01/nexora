@@ -136,7 +136,12 @@ limited to that group's approved knowledge. Inputs are treated as untrusted data
 model has no moderation tools, and outputs are labeled advisory. Human review is still
 required: these boundaries do not guarantee factual accuracy or eliminate prompt injection.
 
-## Disabled billing foundation
+## Earlier disabled billing foundation
+
+**Superseded by [Packages](PACKAGES.md):** Pro now covers six group slots for three
+calendar months; Ultra covers one group for 30 days; cancellation has a seven-day
+refund window. Actual Stars amounts and live activation remain pending.
+
 
 All features remain available: no live price, quota or paywall has been chosen.
 `NEXORA_BILLING_ENABLED=0`, `NEXORA_PRO_STARS=0` and blank terms are intentional defaults.

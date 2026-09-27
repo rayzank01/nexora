@@ -1,5 +1,10 @@
 # Commands and configuration
 
+New package/owner commands: `/plans`, `/buypro`, `/buyultra`, `/assignplan`,
+`/operator_groups`, `/advertise`. Updated `/subscriptions` cancels/refunds under the
+seven-day policy. See [complete package guide](PACKAGES.md).
+
+
 Commands remain English identifiers. Bot menus, web controls, verification and application
 errors use English/Malayalam catalogs. Set the group language in `/panel` or with
 `/set language "ml"`; use `/language ml` privately for personal menus. User-authored

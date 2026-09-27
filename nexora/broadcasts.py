@@ -15,7 +15,7 @@ class SuperAdminBroadcasts:
 
     def remember(self, chat, user=None):
         if chat.get('type') in ('group', 'supergroup'):
-            self.e.db.put('global', 'broadcast_groups', chat['id'], {'title': chat.get('title', ''), 'seen': time.time()})
+            self.e.db.put('global', 'broadcast_groups', chat['id'], {'title': chat.get('title', ''), 'username':chat.get('username',''), 'seen': time.time()})
         elif chat.get('type') == 'private' and user and user.get('id') == chat['id'] and not user.get('is_bot'):
             self.e.db.put('global', 'broadcast_users', chat['id'], {'seen': time.time()})
 
@@ -24,6 +24,8 @@ class SuperAdminBroadcasts:
             return bool(self.e.db.get('global', 'broadcast_users', chat)) and \
                 self.e.db.get('support', 'subscribers', chat) is not False and \
                 not self.e.db.get('support', 'blocked', chat, False)
+        if kind=='free_group' and self.e.ext.billing.plan(chat)['plan']!='free':return False
+        if self.e.db.get('global','community_inboxes',chat) is not None:return False
         if chat == self.e.config.support_chat:
             return False
         return self.e.member(chat, self.e.me['id']).get('status') == 'administrator'
@@ -33,14 +35,39 @@ class SuperAdminBroadcasts:
         if m['chat']['type'] != 'private' or not self.allowed(uid):
             raise PermissionError('Super-admin broadcasts require an authorized operator in private chat')
         db = self.e.db
+        if cmd=='operator_groups':
+            page=max(0,int(args or 0));groups=list(db.items('global','broadcast_groups').items())
+            for key,info in groups[page*10:(page+1)*10]:
+                chat=int(key)
+                try:
+                    current=self.e.tg.call('getChat',chat_id=chat)
+                    active=self.eligible(chat,'group')
+                except RemoteError:
+                    current={};active=False
+                username=current.get('username')
+                link='https://t.me/'+username if username else current.get('invite_link')
+                buttons=[]
+                if link and link.startswith('https://t.me/'):buttons=[[{'text':'Open group','url':link}]]
+                label=info.get('title') or str(chat)
+                plan=self.e.ext.billing.plan(chat)['plan'].upper()
+                self.e.say(uid,f'{label}\nID: {chat} · {plan} · '+('Bot admin active' if active else 'Bot unavailable or no longer admin')+
+                    ('' if buttons else '\nNo available access link. Ask a group admin for an invitation.'),reply_markup={'inline_keyboard':buttons})
+            self.e.say(uid,f'Groups {page*10+1}–{min(len(groups),(page+1)*10)} / {len(groups)}')
+            choices=[]
+            if page:choices.append(('Previous','operator_groups',{'page':page-1}))
+            if (page+1)*10<len(groups):choices.append(('Next','operator_groups',{'page':page+1}))
+            if choices:self.e.ext.buttons(uid,uid,uid,'Group list',choices)
+            return
         if cmd == 'superadmin':
+            self.e.ext.buttons(uid,uid,uid,'Operator controls',[('Group list','operator_groups',{'page':0}),('Advertise in free groups','operator_ads',{})])
             self.e.say(uid, 'Super-admin broadcast console\n/announce users|groups|all TEXT (or reply to media)\n'
-                '/announce_send ID CONFIRM\n/announce_status ID\n/announce_cancel ID\n'
+                '/advertise TEXT (or reply to media): free groups only\n/operator_groups [PAGE]\n/announce_send ID CONFIRM\n/announce_status ID\n/announce_cancel ID\n'
                 'Private recipients must have contacted this bot and must not have opted out. '
                 'Groups must be observed and Nexora must still be an administrator.')
             return
-        if cmd == 'announce':
-            bits = args.split(maxsplit=1)
+        if cmd in ('announce','advertise'):
+            advertising=cmd=='advertise'
+            bits = ['groups',args] if advertising else args.split(maxsplit=1)
             if not bits or bits[0] not in ('users', 'groups', 'all'):
                 raise ValueError('Use /announce users|groups|all TEXT, or reply to content')
             content = self.e.capture(m.get('reply_to_message', {}), bits[1] if len(bits) > 1 else '')
@@ -52,13 +79,14 @@ class SuperAdminBroadcasts:
                     continue
                 for target in db.items('global', category):
                     try:
-                        if self.eligible(int(target), kind):
-                            targets.append({'chat': int(target), 'kind': kind})
+                        delivery_kind='free_group' if advertising else kind
+                        if self.eligible(int(target), delivery_kind):
+                            targets.append({'chat': int(target), 'kind': delivery_kind})
                     except RemoteError:
                         unchecked += 1
             campaign_id = secrets.token_hex(6)
             campaign = {'owner': uid, 'created': time.time(), 'expires': time.time() + 900,
-                        'status': 'draft', 'targets': targets, 'content': content}
+                        'status': 'draft', 'targets': targets, 'content': content,'advertising':advertising}
             db.put('global', 'campaigns', campaign_id, campaign)
             self.e.send_content(uid, content)
             self.e.say(uid, f'Preview {campaign_id}: {len(targets)} eligible destinations; {unchecked} could not be checked.\n'
