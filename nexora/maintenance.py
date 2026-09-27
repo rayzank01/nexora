@@ -12,10 +12,18 @@ def main():
     sub.add_parser('status')
     backup=sub.add_parser('backup')
     backup.add_argument('destination')
+    restore=sub.add_parser('restore')
+    restore.add_argument('source')
+    restore.add_argument('--sha256',required=True)
+    restore.add_argument('--confirm-restore',action='store_true')
     args=parser.parse_args()
     source=Path(args.db).resolve()
     if not source.is_file():
         parser.error('Database does not exist')
+    if args.command=='restore':
+        from .backups import restore
+        print('Rollback backup:',restore(args.source,source,args.sha256,args.confirm_restore))
+        return
     con=sqlite3.connect(source.as_uri()+'?mode=ro',uri=True)
     con.row_factory=sqlite3.Row
     if args.command=='status':

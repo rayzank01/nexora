@@ -15,6 +15,8 @@ from .config import DEFAULTS, LOCKS, CAPS, PERMISSIONS
 from .transport import RemoteError, request_json
 from .health import WorkerHealth
 from .broadcasts import SuperAdminBroadcasts
+from .extensions import Extensions
+from .i18n import translate
 
 
 def duration(value):
@@ -92,12 +94,22 @@ class Engine:
         self.flood = {}
         self.health = WorkerHealth()
         self.superadmin = SuperAdminBroadcasts(self)
+        self.ext = Extensions(self)
 
-    def settings(self, chat):
-        return {**DEFAULTS, **self.db.get(chat, 'config', 'settings', {})}
+    def settings(self, chat, topic=0):
+        base = {**DEFAULTS, **self.db.get(chat, 'config', 'settings', {})}
+        if topic:
+            base.update(self.db.get(chat, 'topics', topic, {}))
+        for key in ('welcome','goodbye','rules','captcha_text'):
+            if base[key] == DEFAULTS[key]:
+                base[key] = translate(base[key],base['language'])
+        return base
 
     def say(self, chat, text, **kwargs):
-        return self.tg.call('sendMessage', chat_id=chat, text=str(text)[:4096], **kwargs)
+        language = kwargs.pop('_language', self.settings(chat)['language'])
+        if kwargs.get('reply_markup',{}).get('inline_keyboard'):
+            kwargs['reply_markup']={'inline_keyboard':[[{**b,'text':translate(b['text'],language)} for b in row] for row in kwargs['reply_markup']['inline_keyboard']]}
+        return self.tg.call('sendMessage', chat_id=chat, text=translate(str(text), language)[:4096], **kwargs)
 
     def member(self, chat, user):
         return self.tg.call('getChatMember', chat_id=chat, user_id=user)
@@ -144,6 +156,7 @@ class Engine:
 
     def moderate(self, chat, user, action, seconds=0, reason='', permissions=None):
         self.protect(chat, user)
+        prior = self.member(chat, user)
         self.bot_right(chat, 'can_restrict_members')
         if seconds and not 60 <= seconds <= 365 * 86400:
             raise ValueError('Timed restrictions must be 60 seconds to 365 days')
@@ -170,6 +183,7 @@ class Engine:
                          use_independent_chat_permissions=True, until_date=until)
         else:
             raise ValueError('Unknown moderation action')
+        self.ext.record_action(chat, user, action, prior, reason)
         self.audit(chat, user, action, seconds=seconds, reason=reason)
         self.db.delete(chat,'restore_revision',user)
         if action == 'ban':
@@ -196,8 +210,8 @@ class Engine:
             self.db.delete(chat, 'warnings', user)
         return len(warnings)
 
-    def configure(self, chat, user, key, value):
-        self.require(chat, user)
+    def validate_setting(self, chat, user, key, value):
+        self.require(chat, user, native=True)
         if key not in DEFAULTS:
             raise ValueError('Unknown setting')
         expected = type(DEFAULTS[key])
@@ -228,7 +242,9 @@ class Engine:
                 raise ValueError('Configure all Turnstile environment values first')
         if isinstance(value, str) and len(value) > 3500:
             raise ValueError('Text too long')
-        s = self.settings(chat)
+    def configure(self, chat, user, key, value):
+        self.validate_setting(chat, user, key, value)
+        s = {**DEFAULTS, **self.db.get(chat,'config','settings',{})}
         s[key] = value
         self.db.put(chat, 'config', 'settings', s)
         self.audit(chat, user, 'setting', key=key)
@@ -245,8 +261,13 @@ class Engine:
             return {'kind':'copy','chat':message['chat']['id'],'message':message['message_id'], 'text':''}
         return {'kind':'text','text':fallback, 'entities':[], 'html':True}
 
-    def send_content(self, dest, content, user=None, chat=None, silent=False):
+    def send_content(self, dest, content, user=None, chat=None, silent=False, topic=0):
         p = {'chat_id': dest, 'disable_notification': silent}
+        if topic:
+            p['message_thread_id'] = topic
+        if content['kind'] == 'album':
+            sent = self.tg.call('sendMediaGroup', media=content['media'], **p)
+            return {'message_id': sent[0]['message_id'], 'album_messages': [x['message_id'] for x in sent]}
         text = content.get('text','')
         templated = user is not None and chat is not None and any('{' + key + '}' in text for key in
             ('first_name','username','user_id','chat_title','chat_id'))
@@ -274,22 +295,28 @@ class Engine:
                 p['caption_entities'] = content['entities']
         return self.tg.call('send' + {'video_note':'VideoNote'}.get(kind, kind.title()), **p)
 
-    def add_rule(self, chat, user, name, rule):
-        self.require(chat, user)
+    def validate_rule(self, rule):
         if rule.get('type') not in ('word','phrase','domain','user','pattern') or not isinstance(rule.get('match'),str) or not 1 <= len(rule['match']) <= 256:
             raise ValueError('Rule needs type and match (1..256 characters)')
         if not set(rule.get('actions', [])) <= {'delete','warn','mute','ban','kick','reply'}:
             raise ValueError('Invalid rule action')
         if rule.get('audience', 'all') not in ('all','admin','user') or type(rule.get('bots', False)) is not bool:
             raise ValueError('Invalid audience/bots value')
+    def add_rule(self, chat, user, name, rule):
+        self.require(chat, user, native=True)
+        self.validate_rule(rule)
         self.db.put(chat, 'rules', name[:40], rule)
 
     def apply_rules(self, m):
         chat, user = m['chat']['id'], m['from']['id']
-        s = self.settings(chat)
+        topic = m.get('message_thread_id', 0)
+        s = self.settings(chat, topic)
         admin = self.admin(chat, user)
         exempt = admin or self.db.get(chat, 'trusted', user, False)
         if not exempt:
+            if self.db.get(chat,'extensions','raid_active',{}).get('until',0)>time.time():
+                self.delete_message(chat,m['message_id'])
+                return True
             types = content_types(m)
             joined = self.db.get(chat, 'members', user, {}).get('joined', 0)
             new = joined and time.time() - joined < s['new_user_seconds']
@@ -298,7 +325,7 @@ class Engine:
                 self.warn(chat, user, reason='Content lock')
                 return True
             now = time.time()
-            queue = self.flood.setdefault((chat,user), deque(maxlen=1001))
+            queue = self.flood.setdefault((chat,user,topic), deque(maxlen=1001))
             digest = hashlib.sha256((m.get('text') or m.get('caption') or str(sorted(types))).encode()).hexdigest()
             queue.append((now,digest))
             while queue and queue[0][0] < now - s['flood_window']:
@@ -308,7 +335,7 @@ class Engine:
                 self.moderate(chat,user,'mute',s['action_seconds'],'Flood/repeated content')
                 queue.clear()
                 return True
-        for name, r in self.db.items(chat,'rules').items():
+        for name, r in self.ext.rules(chat,topic).items():
             if m['from'].get('is_bot') and not r.get('bots', False):
                 continue
             audience = r.get('audience', 'all')
@@ -319,9 +346,9 @@ class Engine:
                 if action == 'reply':
                     saved = self.db.get(chat,'notes',r.get('note',''))
                     if saved:
-                        self.send_content(chat,saved,m['from'],m['chat'])
+                        self.send_content(chat,saved,m['from'],m['chat'],topic=topic)
                     elif r.get('reply'):
-                        self.say(chat,render(r['reply'],m['from'],m['chat']),parse_mode='HTML')
+                        self.say(chat,render(r['reply'],m['from'],m['chat']),parse_mode='HTML',**({'message_thread_id':topic} if topic else {}))
                 elif not exempt:
                     if action == 'delete':
                         self.delete_message(chat,m['message_id'])
@@ -405,7 +432,7 @@ class Engine:
             raise ValueError('No active verification; ask a group admin')
         mode = c['mode']
         if mode in ('web','turnstile'):
-            sent = self.say(dest,'Open your private verification link. Do not share it.',reply_markup={'inline_keyboard':[[
+            sent = self.say(dest,'Open your private verification link. Do not share it.',_language=self.settings(cid)['language'],reply_markup={'inline_keyboard':[[
                 {'text':'Verify','url':self.config.public_url + '/verify?token=' + c['token']}]]})
         elif mode in ('response','math','image'):
             self.db.put(uid,'session','captcha',cid)
@@ -418,11 +445,11 @@ class Engine:
                 d.text((30,22),c['answer'],font_size=38,fill='#ffffff')
                 buf = io.BytesIO()
                 im.save(buf,format='PNG')
-                sent = self.tg.photo(dest,buf.getvalue(),caption='Type the characters shown. / അക്ഷരങ്ങൾ നൽകുക.')
+                sent = self.tg.photo(dest,buf.getvalue(),caption=translate('Type the characters shown. / അക്ഷരങ്ങൾ നൽകുക.',self.settings(cid)['language']))
             else:
-                sent = self.say(dest,c['question'] if mode == 'math' else 'Type: ' + c['answer'])
+                sent = self.say(dest,c['question'] if mode == 'math' else 'Type: ' + c['answer'],_language=self.settings(cid)['language'])
         else:
-            sent = self.say(dest,'Tap to verify / പരിശോധിക്കുക',reply_markup={'inline_keyboard':[[
+            sent = self.say(dest,'Tap to verify / പരിശോധിക്കുക',_language=self.settings(cid)['language'],reply_markup={'inline_keyboard':[[
                 {'text':'I am here / ഞാൻ ഇവിടെ ഉണ്ട്','callback_data':'v:' + c['token']}]]})
         c['prompts'].append([dest,sent['message_id']])
         self.db.put(cid,'captcha',uid,c)
@@ -523,6 +550,8 @@ class Engine:
         cmd = addressed[0][1:].lower()
         args = raw[1] if len(raw)>1 else ''
         private = m['chat']['type'] == 'private'
+        if self.ext.command(m,cmd,args):
+            return
         if cmd in ('superadmin','announce','announce_send','announce_status','announce_cancel'):
             self.superadmin.command(m,cmd,args)
             return
@@ -533,6 +562,10 @@ class Engine:
             self.say(cid,self.help_text(cid))
             if private and cmd == 'start':
                 self.say(cid,'Bot operators may send service announcements here. /unsubscribe opts out; /subscribe opts in again.')
+                self.ext.buttons(cid,uid,cid,'Nexora', [('Choose a group','choose_groups',{}),('Privacy controls','privacy_menu',{}),
+                    ('English','private_language',{'language':'en'}),('മലയാളം','private_language',{'language':'ml'})])
+                self.say(cid,'Add Nexora to your group, then open /panel.',reply_markup={'inline_keyboard':[[
+                    {'text':'Add to group','url':f'https://t.me/{self.me["username"]}?startgroup=true'}]]})
             return
         if private:
             if cmd == 'myid':
@@ -553,7 +586,7 @@ class Engine:
             raise ValueError('Use /help for private commands')
         if cmd in ('rules','settings','admins','info','stats','leaderboard','rep','warnings'):
             if cmd == 'rules':
-                self.say(cid,self.settings(cid)['rules'],parse_mode='HTML')
+                self.say(cid,self.settings(cid,m.get('message_thread_id',0))['rules'],parse_mode='HTML',**({'message_thread_id':m['message_thread_id']} if m.get('message_thread_id') else {}))
             elif cmd == 'settings':
                 self.require(cid,uid)
                 self.say(cid,json.dumps(self.settings(cid),ensure_ascii=False,indent=2))
@@ -623,7 +656,7 @@ class Engine:
                 self.moderate(cid,target,cmd,seconds,rest)
             return
         if cmd in ('set','lock','unlock','role','unrole','save','forget','rule','unrule','custom','uncustom'):
-            self.require(cid,uid)
+            self.require(cid,uid,native=True)
             if cmd == 'set':
                 key,value = args.split(maxsplit=1)
                 self.configure(cid,uid,key,json.loads(value))
@@ -725,7 +758,10 @@ Config: /settings /set key JSON /lock /unlock /role /unrole
 Content: /save name (reply) /get name /notes /forget /rule name JSON /unrule /custom command note /uncustom
 Tools: /admins /delete /purge /pin /unpin /invite /revoke /reports /resolve
 Federations: /fedcreate /fedjoin /fedleave /fedban /fedunban
-Private: /dashboard CHAT_ID /support /subscribe /unsubscribe
+Private: /dashboard CHAT_ID /panel /privacy /appeal GROUP_ID /appeals GROUP_ID
+Group administrators: /panel /testfilter SAMPLE
+Support: /support /subscribe /unsubscribe /ticket ID
+Publishing: /album NAME
 Publishing (private): /channel CHAT_ID /draft /drafts /draftedit /preview /buttons /publish /schedule /jobs /cancel /reschedule /postedit /article /articles
 Support admins: /inbox /close /blockuser /broadcast
 Super admins (private): /superadmin /announce /announce_send /announce_status /announce_cancel
@@ -777,6 +813,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             self.db.put('support','subscribers',uid,cmd=='subscribe')
             self.say(cid,'Broadcast preference saved / അറിയിപ്പ് മുൻഗണന സേവ് ചെയ്തു')
         elif cmd == 'support':
+            self.db.delete(uid,'session','community_support')
             if not self.config.support_chat or not self.config.support_admins:
                 raise ValueError('Support is not configured')
             self.db.put(uid,'session','support',True)
@@ -829,6 +866,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                 ticket = self.db.get('support','tickets',ticket_id)
                 if ticket and ticket['status']=='open' and not self.db.get('support','blocked',ticket['user'],False):
                     self.tg.call('copyMessage',chat_id=ticket['user'],from_chat_id=cid,message_id=m['message_id'])
+                    self.ext.ops.support_replied(ticket_id)
                     self.db.event(0,uid,'support_reply',{'ticket':ticket_id})
             return
         if m['chat']['type'] != 'private' or not self.db.get(uid,'session','support',False):
@@ -846,6 +884,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             ticket = {'user':uid,'status':'open','created':time.time()}
             self.db.put('support','tickets',tid,ticket)
             self.db.put('support','active',uid,tid)
+        self.ext.ops.support_received(tid)
         header = self.say(self.config.support_chat,f'Ticket {tid} | user {uid}\nReply to this header or the copied message.')
         self.db.put('support','relay',header['message_id'],tid)
         copied = self.tg.call('copyMessage',chat_id=self.config.support_chat,from_chat_id=cid,message_id=m['message_id'])
@@ -887,6 +926,8 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             if not draft:
                 raise ValueError('Unknown draft')
             if cmd == 'buttons':
+                if draft['kind']=='album':
+                    raise ValueError('Telegram media albums do not support attached inline keyboards')
                 buttons = json.loads(rest)
                 if not isinstance(buttons,list) or len(buttons)>10:
                     raise ValueError('Use at most 10 rows of buttons')
@@ -996,6 +1037,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
 
     def tick(self):
         """Persistent scheduler, serialized with updates/HTTP using db.lock by caller."""
+        self.ext.maintenance()
         now = time.time()
         for j in self.db.sql("SELECT * FROM jobs WHERE status='pending' AND due<=? ORDER BY due LIMIT 10",(now,)):
             self.db.sql("UPDATE jobs SET status='running' WHERE id=? AND status='pending'",(j['id'],))
@@ -1040,15 +1082,20 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                     self.bot_right(cid,'can_post_messages' if chat['type']=='channel' else 'can_delete_messages')
                     sent = self.send_content(cid,p['content'],silent=p.get('silent',False))
                     self.db.put(p['scope'],'posts',sent['message_id'],{'kind':p['content']['kind'],'job':j['id']})
+                    for mid,media in zip(sent.get('album_messages',[]),p['content'].get('media',[])):
+                        self.db.put(p['scope'],'posts',mid,{'kind':media['type'],'job':j['id'],'album':sent['album_messages']})
                     self.db.event(cid,p['actor'],'published',{'message':sent['message_id'],'job':j['id']})
                 elif kind == 'broadcast':
                     if p['actor'] in self.config.support_admins and self.db.get('support','subscribers',cid,False) and not self.db.get('support','blocked',cid,False):
                         self.send_content(cid,p['content'])
                 elif kind == 'super_broadcast':
                     self.superadmin.deliver(cid,p)
-                else:
+                elif not self.ext.job(kind,cid,p):
                     raise ValueError('Unknown job type')
-                if j['interval']:
+                if p.get('wallclock'):
+                    from .calendar import next_run
+                    self.db.sql("UPDATE jobs SET status='pending',due=? WHERE id=?",(next_run(p['wallclock'],time.time()),j['id']))
+                elif j['interval']:
                     # Skip missed runs; recurrence is an elapsed UTC interval, not a local wall clock.
                     due = j['due'] + (int((time.time()-j['due'])//j['interval'])+1)*j['interval']
                     self.db.sql("UPDATE jobs SET status='pending',due=? WHERE id=?",(due,j['id']))
@@ -1065,17 +1112,24 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
                 self.db.sql("UPDATE jobs SET status='failed',error=? WHERE id=?",(str(exc)[:300],j['id']))
 
     def handle(self,update):
+        if 'pre_checkout_query' in update:
+            self.ext.billing.precheckout(update['pre_checkout_query']);return
+        payment=update.get('message',{})
+        if 'successful_payment' in payment or 'refunded_payment' in payment:
+            self.ext.billing.receipt(payment,'refunded_payment' in payment);return
         if 'callback_query' in update:
             q = update['callback_query']
+            if self.ext.callback(q):
+                return
             try:
                 if q.get('data','').startswith('v:'):
                     cid,uid,c = self.find_captcha(q['data'][2:])
                     if q['from']['id'] != uid or c['mode'] not in ('button','private'):
                         raise PermissionError('This challenge belongs to another member')
                     self.complete_captcha(cid,uid)
-                self.tg.call('answerCallbackQuery',callback_query_id=q['id'],text='Verified')
+                self.tg.call('answerCallbackQuery',callback_query_id=q['id'],text=translate('Verified',self.settings(q['from']['id'])['language']))
             except (ValueError,PermissionError) as exc:
-                self.tg.call('answerCallbackQuery',callback_query_id=q['id'],text=str(exc)[:180],show_alert=True)
+                self.tg.call('answerCallbackQuery',callback_query_id=q['id'],text=translate(str(exc),self.settings(q['from']['id'])['language'])[:180],show_alert=True)
             return
         if 'chat_join_request' in update:
             r = update['chat_join_request']
@@ -1083,6 +1137,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             return
         member_update = update.get('chat_member') or update.get('my_chat_member')
         if member_update:
+            self.ext.membership(member_update)
             cid = member_update['chat']['id']
             self.superadmin.remember(member_update['chat'])
             old,new = member_update['old_chat_member'],member_update['new_chat_member']
@@ -1127,6 +1182,15 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             return
         self.superadmin.remember(m['chat'], m['from'])
         uid = m['from']['id']
+        if 'edited_message' not in update:
+            if self.ext.input(m):
+                return
+            if m.get('text','').split(' ',1)[0].split('@')[0] in ('/ticket','/cticket'):
+                self.command(m)
+                return
+            if self.ext.community.relay(m):
+                return
+            self.ext.ops.observe_album(m)
         if cid == self.config.support_chat:
             if 'edited_message' not in update:
                 self.relay(m)
@@ -1148,6 +1212,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
         if pending and pending['status']=='pending' and self.settings(cid)['strict']:
             self.delete_message(cid,m['message_id'])
             return
+        self.ext.observe(m)
         # Run locks/rules before dispatch, so commands and edited captions cannot bypass moderation.
         if self.apply_rules(m):
             return
@@ -1175,6 +1240,7 @@ See docs/COMMANDS.md for syntax and examples.''' + ('\n'+self.settings(cid)['hel
             return
         self.db.put(cid,'members',uid,{'joined':time.time(),'name':user.get('first_name','')})
         self.db.event(cid,uid,'join')
+        self.ext.raid_observe(cid,uid)
         verified = self.db.get(cid,'captcha',uid)
         if verified and verified.get('request') and verified['status']=='verified' and verified['expires']>time.time()-120:
             return

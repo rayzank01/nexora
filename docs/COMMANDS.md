@@ -1,9 +1,31 @@
 # Commands and configuration
 
-Commands are English; user-facing onboarding includes English and Malayalam. English is
-the default. `/set language "ml"` changes the help introduction; several prompts are
-bilingual. Error messages and the dashboard are currently English. Command descriptions
-are installed on startup. `/set help "Your instructions"` appends group-specific help.
+Commands remain English identifiers. Bot menus, web controls, verification and application
+errors use English/Malayalam catalogs. Set the group language in `/panel` or with
+`/set language "ml"`; use `/language ml` privately for personal menus. User-authored
+content and technical exports keep their original representation.
+
+## Interactive additions (27 September)
+
+| Entry | Behavior |
+|---|---|
+| `/panel [GROUP_ID]`, `/wizard`, `/setup` | Interactive administration; private group selector or current group/topic |
+| `/language en` or `/language ml` | Personal private language |
+| `/appeal GROUP_ID`, `/appeals GROUP_ID` | Private member appeal and native admin review |
+| `/test SAMPLE` | Side-effect-free rule explanation; also supports a replied sample |
+| `/privacy` | Private personal export, deletion and AI capture opt-out |
+| `/csupport GROUP_ID`, `/cticket GROUP_ID ID` | Community-specific private support and staff ticket controls |
+| `/ticket ID` | Operator support assignment, priority, internal notes and close |
+| `/album NAME` | Private: reply to an observed photo/video album after selecting `/channel` |
+| `/faq QUESTION` | Group-approved optional AI FAQ |
+| `/backups` | Private super-admin backup status |
+| `/plan GROUP_ID`, `/upgrade GROUP_ID` | Group plan and disabled-by-default invoice workflow |
+| `/subscriptions`, `/terms`, `/paysupport` | Payer renewal cancellation, configured terms and support |
+| `/refund CHARGE_ID` | Private super-admin refund confirmation; only for configured billing |
+
+The panel also contains raid, name-alert, templates/bulk, topic, event/poll/quiz,
+recurrence, retention and optional AI controls. See [Expansion setup](EXPANSION.md)
+for formats, permissions, tests and operating limits.
 
 ## Group permissions
 
@@ -16,7 +38,7 @@ members. Existing native admins and Nexora itself are protected from punishment.
 
 | Command | Syntax / behavior |
 |---|---|
-| `/setup`, `/settings` | Rights checklist and complete current settings |
+| `/setup`, `/settings` | Interactive setup / complete current settings |
 | `/set` | `/set KEY JSON_VALUE`, one setting at a time |
 | `/role` | `/role USER_ID moderate,delete,reports`; native admins only |
 | `/unrole` | `/unrole USER_ID`; removes all custom capabilities |

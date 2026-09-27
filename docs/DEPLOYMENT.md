@@ -1,8 +1,15 @@
 # Deployment and operations
 
-**2026-09-14:** Free Render deployment remains incompatible with the full current worker
-and storage requirements. See [FREE HOSTING](FREE_HOSTING.md) for the reviewed choices.
-No host has been selected in place of Render and no live deployment has occurred.
+**Current hosting decision:** the user approved Render's $7.25/month base configuration
+($7 compute plus a 1 GB disk) in the prior hosting session. This is the recorded approval,
+not a fresh price quotation. No live service has been deployed. Preserve the mounted disk
+at `/app/data`, `DATABASE_PATH=/app/data/nexora.sqlite3` and
+`PERSISTENT_DATA_DIR=/app/data`. Set the bot token and numeric super-admin IDs privately;
+set the public HTTPS origin once Render supplies it. `/health` is the liveness path;
+monitor `/ready` separately. The free-plan discussion is historical, not the current choice.
+
+Deploy the 27 September expanded source release from GitHub. [Expansion operations](EXPANSION.md) covers public onboarding, backups/restore,
+privacy, optional AI and disabled billing. No additional paid service was selected.
 
 ## Architecture
 
@@ -64,15 +71,17 @@ usable by Telegraph. No external content is fetched by Nexora from arbitrary art
 ## API authentication
 
 Issue a token by sending `/dashboard CHAT_ID` privately. It expires in one hour, is
-stored hashed in SQLite and grants access only to that chat. Every request checks live
-native admin membership. Group IDs in request bodies/queries do not change the token's
-scope. Tokens are URL fragments in dashboard links, then removed from the address bar
+stored hashed in SQLite. Legacy stats/settings/moderation endpoints remain scoped to
+that initial chat. The new groups/console endpoints allow selecting another known group
+only after independently verifying the same user's live native admin rights there. Every
+request also revalidates the original session group; revocation there expires its access. Tokens are URL fragments in dashboard links, then removed from the address bar
 and kept in browser session storage. Requests use `Authorization: Bearer TOKEN`.
 
 | Endpoint | Method / behavior |
 |---|---|
 | `/health` | GET; unauthenticated process/listener liveness, not proof Telegram polling is healthy |
 | `/ready` | GET; 200 when polling and scheduler each progressed within 90 seconds, otherwise 503 |
+| `/api/groups`, `/api/console`, `/api/personal` | Authenticated group selector, scoped interactive controls and own-data export; console POST requires preview then bound confirmation |
 | `/api/stats` | GET; activity, daily growth, heatmap, recent logs and job states |
 | `/api/settings` | GET settings; POST `{"key":"warn_limit","value":3}` |
 | `/api/reports` | GET scoped report records |

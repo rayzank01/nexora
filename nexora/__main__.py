@@ -54,8 +54,7 @@ def main():
                     engine.tick()
                     engine.health.scheduler_ok()
                     if time.time()-last_cleanup>3600:
-                        cutoff = time.time()-config.retention_days*86400
-                        db.sql('DELETE FROM events WHERE at<?',(cutoff,))
+                        # Per-group retention is applied by Extensions.maintenance().
                         # Clear failed/uncertain update bodies during hourly cleanup.
                         db.sql("UPDATE updates SET payload='{}' WHERE status IN ('failed','uncertain')")
                         offset = db.get('global','poll','offset',0)
@@ -68,7 +67,7 @@ def main():
                         last_cleanup = time.time()
                     offset = db.get('global','poll','offset',0)
                 updates = tg.call('getUpdates',offset=offset,timeout=5,
-                    allowed_updates=['message','edited_message','callback_query','chat_member','my_chat_member','chat_join_request'])
+                    allowed_updates=['message','edited_message','callback_query','chat_member','my_chat_member','chat_join_request','pre_checkout_query'])
                 engine.health.poll_ok()
                 with db.lock:
                     # Persist whole batch and new offset before processing. Pending rows survive restart.

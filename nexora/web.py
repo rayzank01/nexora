@@ -8,6 +8,7 @@ from pathlib import Path
 from urllib.parse import parse_qs, urlparse
 
 from .transport import request_json, RemoteError
+from .i18n import translate
 
 
 def authenticate(engine, authorization):
@@ -48,6 +49,8 @@ def make_server(engine):
             pass  # No private URL tokens, identities or request bodies in access logs.
 
         def reply(self,status,content,kind='application/json'):
+            if kind=='application/json' and isinstance(content,dict) and 'error' in content:
+                content={**content,'error':translate(content['error'],getattr(self,'language','en'))}
             data = json.dumps(content,ensure_ascii=False).encode() if kind=='application/json' else content.encode()
             self.send_response(status)
             self.send_header('Content-Type',kind+'; charset=utf-8')
@@ -61,6 +64,7 @@ def make_server(engine):
             self.wfile.write(data)
 
         def do_GET(self):
+            self.language='ml' if self.headers.get('X-Nexora-Language')=='ml' else 'en'
             try:
                 parsed = urlparse(self.path)
                 # Do not wait for the worker's database lock just to report a stuck worker.
@@ -74,20 +78,42 @@ def make_server(engine):
                 with engine.db.lock:
                     if parsed.path=='/':
                         self.reply(200,Path(__file__).with_name('dashboard.html').read_text(encoding='utf-8'),'text/html')
+                    elif parsed.path=='/console':
+                        self.reply(200,Path(__file__).with_name('console.html').read_text(encoding='utf-8'),'text/html')
+                    elif parsed.path=='/api/locales':
+                        from .i18n import catalog
+                        self.reply(200,catalog())
+                    elif parsed.path in ('/api/groups','/api/console','/api/personal'):
+                        from .console import read
+                        access=authenticate(engine,self.headers.get('Authorization',''))
+                        self.language=engine.settings(access['chat'])['language']
+                        if parsed.path=='/api/groups':
+                            data={'groups':engine.ext.groups(access['user']),'initial':access['chat']}
+                        elif parsed.path=='/api/personal':
+                            data=engine.ext.ops.personal(access['user'])
+                        else:
+                            chat=int(parse_qs(parsed.query).get('chat',[access['chat']])[0])
+                            data=read(engine,access,chat)
+                        self.reply(200,data)
                     elif parsed.path=='/verify':
                         token = parse_qs(parsed.query).get('token',[''])[0]
-                        _,_,c = engine.find_captcha(token)
+                        cid,_,c = engine.find_captcha(token)
+                        self.language=engine.settings(cid)['language']
                         if c['status']!='pending' or c['expires']<=time.time() or c['mode'] not in ('web','turnstile'):
                             raise ValueError('Expired verification')
                         if c['mode']=='turnstile':
                             challenge = '<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script><div class="cf-turnstile" data-sitekey="' + html.escape(engine.config.turnstile_sitekey,quote=True) + '" data-action="nexora"></div>'
                         else:
-                            challenge = '<p>Type <strong>' + html.escape(c['answer']) + '</strong></p><input name="answer" required autocomplete="off">'
+                            challenge = '<p>'+translate('Type the code',self.language)+' <strong>' + html.escape(c['answer']) + '</strong></p><input name="answer" required autocomplete="off">'
                         page = '<!doctype html><meta name="viewport" content="width=device-width"><title>Nexora verification</title><style>body{font:18px system-ui;max-width:520px;margin:10vh auto;padding:24px;background:#101827;color:#fff}input,button{padding:14px;margin:12px 0}button{background:#7ee7c0;border:0;border-radius:9px}</style><h1>Nexora</h1><p>Complete your private verification. Never share this link.</p><form method="POST" action="/verify"><input type="hidden" name="token" value="' + html.escape(token,quote=True) + '">' + challenge + '<br><button>Verify / പരിശോധിക്കുക</button></form>'
+                        for label in ('Nexora verification','Complete your private verification. Never share this link.','Verify / പരിശോധിക്കുക'):
+                            page=page.replace(label,translate(label,self.language))
+                        page=page.replace('<!doctype html>','<!doctype html><html lang="'+self.language+'">')+'</html>'
                         self.reply(200,page,'text/html')
                     elif parsed.path in ('/api/stats','/api/settings','/api/reports'):
                         access = authenticate(engine,self.headers.get('Authorization',''))
                         cid = access['chat']
+                        self.language=engine.settings(cid)['language']
                         if parsed.path=='/api/stats':
                             data = engine.stats(cid)
                         elif parsed.path=='/api/settings':
@@ -105,6 +131,7 @@ def make_server(engine):
                 self.reply(503,{'error':'Telegram/verification service unavailable'})
 
         def do_POST(self):
+            self.language='ml' if self.headers.get('X-Nexora-Language')=='ml' else 'en'
             try:
                 size = int(self.headers.get('Content-Length','0'))
                 if not 0<size<=65536:
@@ -114,13 +141,21 @@ def make_server(engine):
                     path = urlparse(self.path).path
                     if path=='/verify':
                         data = parse_qs(raw)
+                        cid,_,_=engine.find_captcha(data.get('token',[''])[0])
+                        self.language=engine.settings(cid)['language']
                         verify_web(engine,data.get('token',[''])[0],data.get('answer',[''])[0],data.get('cf-turnstile-response',[''])[0])
-                        self.reply(200,'<!doctype html><meta charset="utf-8"><title>Verified</title><h1>Verified / പരിശോധിച്ചു</h1><p>You can return to Telegram.</p>','text/html')
+                        self.reply(200,'<!doctype html><html lang="'+self.language+'"><meta charset="utf-8"><title>'+translate('Verified',self.language)+'</title><h1>'+translate('Verified',self.language)+'</h1><p>'+translate('You can return to Telegram.',self.language)+'</p></html>','text/html')
                         return
                     access = authenticate(engine,self.headers.get('Authorization',''))
                     data = json.loads(raw)
+                    if not isinstance(data,dict):raise ValueError('Invalid request')
                     cid,uid = access['chat'],access['user']
-                    if path=='/api/settings':
+                    self.language=engine.settings(cid)['language']
+                    if path=='/api/console':
+                        from .console import mutate
+                        self.reply(200,mutate(engine,access,data))
+                        return
+                    elif path=='/api/settings':
                         engine.configure(cid,uid,data['key'],data['value'])
                     elif path=='/api/moderate':
                         engine.require(cid,uid,'moderate',native=True)

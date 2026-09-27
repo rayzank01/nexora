@@ -1,5 +1,21 @@
 # Verification record
 
+## Public bot expansion — 2026-09-27
+
+**155 local automated tests passed** on Windows/Python 3.14, preserving all 88 prior
+regressions and adding 67 expansion/public-bot/final-review checks. See the
+[14-feature evidence matrix](EXPANSION.md) for behavior and test names.
+
+Browser QA used a temporary local database with fake Telegram only: settings preview
+and confirmation, independent group settings, English/Malayalam menus/options/accessible
+labels, weekday headings, and moving a calendar post to a new date/time were verified.
+The final browser showed no console errors. The preview was stopped after review.
+Python compilation, source manifest and ZIP integrity were checked for this release.
+No live Telegram actions, customer messages, customer payments, Docker run, cloud
+deployment were performed during verification. Publication is a separate release step;
+the 27 September release updates the prior GitHub baseline. The approved Render plan is preserved.
+
+
 ## Super-admin broadcast follow-up — 2026-09-17
 
 88 local tests passed: the prior 75 plus 13 campaign tests covering role separation,

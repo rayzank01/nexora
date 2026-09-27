@@ -16,4 +16,4 @@ nexora = "nexora.__main__:main"
 include = ["nexora*"]
 
 [tool.setuptools.package-data]
-nexora = ["dashboard.html"]
+nexora = ["dashboard.html", "console.html", "locales.json"]

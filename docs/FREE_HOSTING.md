@@ -1,3 +1,7 @@
+> Historical free-hosting analysis. Superseded by the user’s later approval of the
+> Render $7.25/month base configuration. No live deployment occurred. See
+> [current deployment setup](DEPLOYMENT.md).
+
 # Free hosting: a decision is still required
 
 Checked against official documentation on **2026-09-14**. No hosting account was created,

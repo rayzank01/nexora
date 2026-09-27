@@ -1,11 +1,13 @@
 # Nexora
 
-One self-hosted Telegram bot for group moderation, verification, community analytics,
+One public, self-hosted Telegram bot with independent administration for each group,
+interactive setup, group moderation, verification, community analytics,
 channel publishing, Telegraph articles and private support. This is a new standalone
 project; it does not depend on an existing Telegram bot repository.
 
 **Source repository:** [rayzank01/nexora](https://github.com/rayzank01/nexora).
-The repository and delivered folder/ZIP include the source, documentation and tests.
+This source release contains the 27 September expansion, documentation and 155 tests.
+The downloadable folder/ZIP mirrors the released source. Deployment remains pending. See the [complete feature/setup audit](docs/EXPANSION.md).
 Implemented project with mock-based tests. No real bot token is included, no live
 Telegram actions have been tested, and no hosting deployment has been performed.
 Register the display name **Nexora** with BotFather; its unique bot

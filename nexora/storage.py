@@ -79,6 +79,20 @@ class Store:
             for row in self.conn.execute('SELECT scope,kind,key,value FROM docs').fetchall():
                 value = json.loads(row['value'])
                 scope,kind,key = row['scope'],row['kind'],row['key']
+                if kind in ('ui_tokens','ui_inputs','web_changes') and value.get('chat') in (old,new):
+                    self.conn.execute('DELETE FROM docs WHERE scope=? AND kind=? AND key=?',(scope,kind,key))
+                    continue
+                if scope=='community:'+str(old):
+                    scope='community:'+str(new)
+                if scope=='billing' and kind in ('orders','charges') and value.get('chat')==old:
+                    value['chat']=new
+                if kind=='community_inboxes':
+                    if key==str(old):key=str(new)
+                    if value==old:value=new
+                if kind=='extensions' and key=='support' and value.get('inbox')==old:
+                    value['inbox']=new
+                if kind=='session' and key=='community_support' and value==old:
+                    value=new
                 if scope.startswith('publisher:') and scope.endswith(':'+str(old)):
                     scope = scope.rsplit(':',1)[0]+':'+str(new)
                 if kind=='session' and key=='channel' and value==old:

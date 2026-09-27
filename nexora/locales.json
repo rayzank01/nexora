@@ -1,0 +1,2282 @@
+{
+  "Done": {
+    "en": "Done",
+    "ml": "പൂർത്തിയായി"
+  },
+  "Saved": {
+    "en": "Saved",
+    "ml": "സേവ് ചെയ്തു"
+  },
+  "Back": {
+    "en": "Back",
+    "ml": "തിരികെ"
+  },
+  "Cancel": {
+    "en": "Cancel",
+    "ml": "റദ്ദാക്കുക"
+  },
+  "Confirm": {
+    "en": "Confirm",
+    "ml": "സ്ഥിരീകരിക്കുക"
+  },
+  "Approve": {
+    "en": "Approve",
+    "ml": "അംഗീകരിക്കുക"
+  },
+  "Reject": {
+    "en": "Reject",
+    "ml": "നിരസിക്കുക"
+  },
+  "Templates": {
+    "en": "Templates",
+    "ml": "നയ മാതൃകകൾ"
+  },
+  "Nexora control panel": {
+    "en": "Nexora control panel",
+    "ml": "Nexora നിയന്ത്രണ പാനൽ"
+  },
+  "Setup wizard": {
+    "en": "Setup wizard",
+    "ml": "സജ്ജീകരണ സഹായി"
+  },
+  "Moderation & raid": {
+    "en": "Moderation & raid",
+    "ml": "മോഡറേഷനും കൂട്ട ആക്രമണവും"
+  },
+  "Topics & rules": {
+    "en": "Topics & rules",
+    "ml": "വിഷയങ്ങളും നിയമങ്ങളും"
+  },
+  "Publishing calendar": {
+    "en": "Publishing calendar",
+    "ml": "പ്രസിദ്ധീകരണ കലണ്ടർ"
+  },
+  "Community events": {
+    "en": "Community events",
+    "ml": "കമ്മ്യൂണിറ്റി പരിപാടികൾ"
+  },
+  "AI settings": {
+    "en": "AI settings",
+    "ml": "AI ക്രമീകരണങ്ങൾ"
+  },
+  "Privacy & retention": {
+    "en": "Privacy & retention",
+    "ml": "സ്വകാര്യതയും സൂക്ഷിക്കൽ കാലാവധിയും"
+  },
+  "Choose a setting": {
+    "en": "Choose a setting",
+    "ml": "ഒരു ക്രമീകരണം തിരഞ്ഞെടുക്കുക"
+  },
+  "More settings": {
+    "en": "More settings",
+    "ml": "കൂടുതൽ ക്രമീകരണങ്ങൾ"
+  },
+  "Check bot permissions": {
+    "en": "Check bot permissions",
+    "ml": "ബോട്ടിന്റെ അനുമതികൾ പരിശോധിക്കുക"
+  },
+  "Choose the new value": {
+    "en": "Choose the new value",
+    "ml": "പുതിയ മൂല്യം തിരഞ്ഞെടുക്കുക"
+  },
+  "Apply this change?": {
+    "en": "Apply this change?",
+    "ml": "ഈ മാറ്റം പ്രയോഗിക്കണോ?"
+  },
+  "Raid controls": {
+    "en": "Raid controls",
+    "ml": "കൂട്ട ആക്രമണ നിയന്ത്രണങ്ങൾ"
+  },
+  "Enable detection": {
+    "en": "Enable detection",
+    "ml": "കണ്ടെത്തൽ പ്രവർത്തനക്ഷമമാക്കുക"
+  },
+  "Disable detection": {
+    "en": "Disable detection",
+    "ml": "കണ്ടെത്തൽ നിർത്തുക"
+  },
+  "Configure thresholds": {
+    "en": "Configure thresholds",
+    "ml": "പരിധികൾ ക്രമീകരിക്കുക"
+  },
+  "Lock down for 10 minutes": {
+    "en": "Lock down for 10 minutes",
+    "ml": "10 മിനിറ്റ് നിയന്ത്രണം ഏർപ്പെടുത്തുക"
+  },
+  "End lockdown": {
+    "en": "End lockdown",
+    "ml": "നിയന്ത്രണം അവസാനിപ്പിക്കുക"
+  },
+  "Impersonation alerts on": {
+    "en": "Impersonation alerts on",
+    "ml": "പേര് അനുകരണ മുന്നറിയിപ്പ് ഓൺ"
+  },
+  "Impersonation alerts off": {
+    "en": "Impersonation alerts off",
+    "ml": "പേര് അനുകരണ മുന്നറിയിപ്പ് ഓഫ്"
+  },
+  "Add name exception": {
+    "en": "Add name exception",
+    "ml": "പേര് പരിശോധനയിൽ ഇളവ് ചേർക്കുക"
+  },
+  "Topic settings inherit group values unless overridden.": {
+    "en": "Topic settings inherit group values unless overridden.",
+    "ml": "പ്രത്യേകം മാറ്റാത്ത വിഷയ ക്രമീകരണങ്ങൾ ഗ്രൂപ്പിൽ നിന്നു സ്വീകരിക്കും."
+  },
+  "Topic rules": {
+    "en": "Topic rules",
+    "ml": "വിഷയ നിയമങ്ങൾ"
+  },
+  "Topic locks": {
+    "en": "Topic locks",
+    "ml": "വിഷയ വിലക്കുകൾ"
+  },
+  "Add filter": {
+    "en": "Add filter",
+    "ml": "ഫിൽറ്റർ ചേർക്കുക"
+  },
+  "Remove filter": {
+    "en": "Remove filter",
+    "ml": "ഫിൽറ്റർ നീക്കുക"
+  },
+  "Test sample without actions": {
+    "en": "Test sample without actions",
+    "ml": "നടപടിയെടുക്കാതെ സാമ്പിൾ പരിശോധിക്കുക"
+  },
+  "Restore topic inheritance": {
+    "en": "Restore topic inheritance",
+    "ml": "ഗ്രൂപ്പ് ക്രമീകരണങ്ങളിലേക്ക് മടങ്ങുക"
+  },
+  "Templates copy policy only; greetings, rules, notes and secrets stay private.": {
+    "en": "Templates copy policy only; greetings, rules, notes and secrets stay private.",
+    "ml": "മാതൃകകൾ നിയന്ത്രണ നയങ്ങൾ മാത്രം പകർത്തും; സ്വാഗതം, നിയമവാചകങ്ങൾ, കുറിപ്പുകൾ, രഹസ്യങ്ങൾ എന്നിവ പകർത്തില്ല."
+  },
+  "Save policy template": {
+    "en": "Save policy template",
+    "ml": "നയ മാതൃക സേവ് ചെയ്യുക"
+  },
+  "Apply a template": {
+    "en": "Apply a template",
+    "ml": "മാതൃക പ്രയോഗിക്കുക"
+  },
+  "Apply this policy to the selected group?": {
+    "en": "Apply this policy to the selected group?",
+    "ml": "തിരഞ്ഞെടുത്ത ഗ്രൂപ്പിൽ ഈ നയം പ്രയോഗിക്കണോ?"
+  },
+  "No scheduled posts": {
+    "en": "No scheduled posts",
+    "ml": "ഷെഡ്യൂൾ ചെയ്ത പോസ്റ്റുകളില്ല"
+  },
+  "Schedule recurring draft": {
+    "en": "Schedule recurring draft",
+    "ml": "ആവർത്തിക്കുന്ന ഡ്രാഫ്റ്റ് ഷെഡ്യൂൾ ചെയ്യുക"
+  },
+  "Move scheduled post": {
+    "en": "Move scheduled post",
+    "ml": "പോസ്റ്റിന്റെ സമയം മാറ്റുക"
+  },
+  "Create event": {
+    "en": "Create event",
+    "ml": "പരിപാടി സൃഷ്ടിക്കുക"
+  },
+  "Edit event": {
+    "en": "Edit event",
+    "ml": "പരിപാടി തിരുത്തുക"
+  },
+  "Create poll": {
+    "en": "Create poll",
+    "ml": "വോട്ടെടുപ്പ് സൃഷ്ടിക്കുക"
+  },
+  "Create quiz": {
+    "en": "Create quiz",
+    "ml": "ക്വിസ് സൃഷ്ടിക്കുക"
+  },
+  "AI is optional. External processing requires separate consent. Summaries only include observed, opted-in capture.": {
+    "en": "AI is optional. External processing requires separate consent. Summaries only include observed, opted-in capture.",
+    "ml": "AI ഐച്ഛികമാണ്. പുറം സേവനത്തിലേക്ക് അയക്കാൻ പ്രത്യേക സമ്മതം വേണം. സംഗ്രഹത്തിൽ സമ്മതത്തോടെ രേഖപ്പെടുത്തിയ സന്ദേശങ്ങൾ മാത്രമേ ഉൾപ്പെടൂ."
+  },
+  "Enable local AI": {
+    "en": "Enable local AI",
+    "ml": "ലോക്കൽ AI പ്രവർത്തനക്ഷമമാക്കുക"
+  },
+  "Disable AI": {
+    "en": "Disable AI",
+    "ml": "AI നിർത്തുക"
+  },
+  "Enable summary capture with notice": {
+    "en": "Enable summary capture with notice",
+    "ml": "അറിയിപ്പോടെ സംഗ്രഹത്തിനുള്ള രേഖപ്പെടുത്തൽ തുടങ്ങുക"
+  },
+  "Stop summary capture": {
+    "en": "Stop summary capture",
+    "ml": "സംഗ്രഹ രേഖപ്പെടുത്തൽ നിർത്തുക"
+  },
+  "Allow configured external AI": {
+    "en": "Allow configured external AI",
+    "ml": "ക്രമീകരിച്ച പുറം AI അനുവദിക്കുക"
+  },
+  "Disallow external AI": {
+    "en": "Disallow external AI",
+    "ml": "പുറം AI അനുവദിക്കരുത്"
+  },
+  "Add approved knowledge": {
+    "en": "Add approved knowledge",
+    "ml": "അംഗീകരിച്ച അറിവ് ചേർക്കുക"
+  },
+  "Remove approved knowledge": {
+    "en": "Remove approved knowledge",
+    "ml": "അംഗീകരിച്ച അറിവ് നീക്കുക"
+  },
+  "Summarize observed messages": {
+    "en": "Summarize observed messages",
+    "ml": "രേഖപ്പെടുത്തിയ സന്ദേശങ്ങൾ സംഗ്രഹിക്കുക"
+  },
+  "Suggest moderation review": {
+    "en": "Suggest moderation review",
+    "ml": "മോഡറേഷൻ അവലോകന നിർദേശം തേടുക"
+  },
+  "Retention applies to observed activity. Active moderation evidence and backups have separate limits.": {
+    "en": "Retention applies to observed activity. Active moderation evidence and backups have separate limits.",
+    "ml": "രേഖപ്പെടുത്തിയ പ്രവർത്തനങ്ങൾക്കാണ് സൂക്ഷിക്കൽ കാലാവധി ബാധകം. സജീവ സുരക്ഷാ രേഖകൾക്കും ബാക്കപ്പുകൾക്കും വ്യത്യസ്ത പരിധികളുണ്ട്."
+  },
+  "Set activity retention days": {
+    "en": "Set activity retention days",
+    "ml": "പ്രവർത്തനങ്ങൾ സൂക്ഷിക്കേണ്ട ദിവസങ്ങൾ നൽകുക"
+  },
+  "Enter join threshold, distinct spammer threshold, window seconds, lockdown seconds: 8 5 30 600": {
+    "en": "Enter join threshold, distinct spammer threshold, window seconds, lockdown seconds: 8 5 30 600",
+    "ml": "ചേരുന്നവരുടെ പരിധി, വ്യത്യസ്ത സ്പാമർമാരുടെ പരിധി, നിരീക്ഷണ സെക്കൻഡ്, നിയന്ത്രണ സെക്കൻഡ് നൽകുക: 8 5 30 600"
+  },
+  "Enter the numeric member ID to exempt from name similarity alerts.": {
+    "en": "Enter the numeric member ID to exempt from name similarity alerts.",
+    "ml": "പേര് സാമ്യ മുന്നറിയിപ്പിൽ ഇളവ് നൽകേണ്ട അംഗത്തിന്റെ സംഖ്യാ ID നൽകുക."
+  },
+  "Enter NAME | word/phrase/domain/pattern/user | MATCH | delete/warn/mute/ban/kick/reply | optional reply text": {
+    "en": "Enter NAME | word/phrase/domain/pattern/user | MATCH | delete/warn/mute/ban/kick/reply | optional reply text",
+    "ml": "NAME | word/phrase/domain/pattern/user | MATCH | delete/warn/mute/ban/kick/reply | ഐച്ഛിക മറുപടി നൽകുക"
+  },
+  "Enter filter name. Topic overrides can be removed without changing group filters.": {
+    "en": "Enter filter name. Topic overrides can be removed without changing group filters.",
+    "ml": "ഫിൽറ്ററിന്റെ പേര് നൽകുക. ഗ്രൂപ്പ് ഫിൽറ്ററുകൾ മാറ്റാതെ വിഷയത്തിലെ മാറ്റങ്ങൾ നീക്കാം."
+  },
+  "Send a sample message. Nothing will be moderated.": {
+    "en": "Send a sample message. Nothing will be moderated.",
+    "ml": "ഒരു സാമ്പിൾ സന്ദേശം അയക്കുക. യഥാർത്ഥ നടപടികൾ ഉണ്ടാകില്ല."
+  },
+  "Enter a short template name.": {
+    "en": "Enter a short template name.",
+    "ml": "മാതൃകയ്ക്ക് ചെറിയ പേര് നൽകുക."
+  },
+  "Enter a saved template name. You will review before applying.": {
+    "en": "Enter a saved template name. You will review before applying.",
+    "ml": "സേവ് ചെയ്ത മാതൃകയുടെ പേര് നൽകുക. പ്രയോഗിക്കുന്നതിന് മുമ്പ് പരിശോധിക്കാം."
+  },
+  "Enter DRAFT | HH:MM | weekdays 0–6 separated by commas (0 is Monday). Group timezone is used.": {
+    "en": "Enter DRAFT | HH:MM | weekdays 0–6 separated by commas (0 is Monday). Group timezone is used.",
+    "ml": "DRAFT | HH:MM | കോമയിട്ട് 0–6 ദിവസങ്ങൾ നൽകുക (0 തിങ്കൾ). ഗ്രൂപ്പിന്റെ സമയമേഖലയാണ് ഉപയോഗിക്കുക."
+  },
+  "Enter JOB_ID | future ISO date/time with offset.": {
+    "en": "Enter JOB_ID | future ISO date/time with offset.",
+    "ml": "JOB_ID | UTC വ്യത്യാസത്തോടെയുള്ള ഭാവി ISO തീയതിയും സമയവും നൽകുക."
+  },
+  "Enter TITLE | future ISO date/time with offset.": {
+    "en": "Enter TITLE | future ISO date/time with offset.",
+    "ml": "ശീർഷകം | UTC വ്യത്യാസത്തോടെയുള്ള ഭാവി ISO തീയതിയും സമയവും നൽകുക."
+  },
+  "Enter EVENT_ID | TITLE | future ISO date/time with offset.": {
+    "en": "Enter EVENT_ID | TITLE | future ISO date/time with offset.",
+    "ml": "EVENT_ID | ശീർഷകം | UTC വ്യത്യാസത്തോടെയുള്ള ഭാവി ISO തീയതിയും സമയവും നൽകുക."
+  },
+  "Enter QUESTION | ANSWER 1 | ANSWER 2 (up to 10 answers).": {
+    "en": "Enter QUESTION | ANSWER 1 | ANSWER 2 (up to 10 answers).",
+    "ml": "ചോദ്യം | ഉത്തരം 1 | ഉത്തരം 2 നൽകുക (പരമാവധി 10 ഉത്തരങ്ങൾ)."
+  },
+  "Enter zero-based CORRECT_INDEX | QUESTION | ANSWER 1 | ANSWER 2.": {
+    "en": "Enter zero-based CORRECT_INDEX | QUESTION | ANSWER 1 | ANSWER 2.",
+    "ml": "പൂജ്യത്തിൽ തുടങ്ങുന്ന ശരിയുത്തര സൂചിക | ചോദ്യം | ഉത്തരം 1 | ഉത്തരം 2 നൽകുക."
+  },
+  "Enter SOURCE_NAME | approved FAQ text. Do not include private data.": {
+    "en": "Enter SOURCE_NAME | approved FAQ text. Do not include private data.",
+    "ml": "SOURCE_NAME | അംഗീകരിച്ച FAQ വാചകം നൽകുക. സ്വകാര്യ വിവരങ്ങൾ ചേർക്കരുത്."
+  },
+  "Enter the source name to remove.": {
+    "en": "Enter the source name to remove.",
+    "ml": "നീക്കേണ്ട സ്രോതസ്സിന്റെ പേര് നൽകുക."
+  },
+  "Send the sample for an advisory AI review.": {
+    "en": "Send the sample for an advisory AI review.",
+    "ml": "AI അവലോകന നിർദേശത്തിനുള്ള സാമ്പിൾ അയക്കുക."
+  },
+  "Enter activity retention in days, 1–3650.": {
+    "en": "Enter activity retention in days, 1–3650.",
+    "ml": "പ്രവർത്തനങ്ങൾ സൂക്ഷിക്കേണ്ട ദിവസങ്ങൾ നൽകുക: 1–3650."
+  },
+  "Enter your appeal reason. It will be shared with this group’s administrators.": {
+    "en": "Enter your appeal reason. It will be shared with this group’s administrators.",
+    "ml": "അപ്പീലിന്റെ കാരണം നൽകുക. ഈ ഗ്രൂപ്പിന്റെ അഡ്മിനുകളുമായി പങ്കിടും."
+  },
+  "Enter the decision reason for the member.": {
+    "en": "Enter the decision reason for the member.",
+    "ml": "അംഗത്തെ അറിയിക്കേണ്ട തീരുമാനകാരണം നൽകുക."
+  },
+  "Enter an internal staff note. This will never be relayed to the member.": {
+    "en": "Enter an internal staff note. This will never be relayed to the member.",
+    "ml": "സ്റ്റാഫിന് മാത്രമുള്ള കുറിപ്പ് നൽകുക. ഇത് അംഗത്തിന് അയക്കില്ല."
+  },
+  "Send the new value as plain text. For lists, separate values with commas. /cancel stops.": {
+    "en": "Send the new value as plain text. For lists, separate values with commas. /cancel stops.",
+    "ml": "പുതിയ മൂല്യം സാധാരണ വാചകമായി അയക്കുക. പട്ടികയിൽ കോമ ഉപയോഗിക്കുക. /cancel നിർത്തും."
+  },
+  "This button expired or belongs to another session": {
+    "en": "This button expired or belongs to another session",
+    "ml": "ഈ ബട്ടണിന്റെ കാലാവധി കഴിഞ്ഞു അല്ലെങ്കിൽ മറ്റൊരു സെഷനുടേതാണ്"
+  },
+  "Action failed; reopen the menu and inspect current state": {
+    "en": "Action failed; reopen the menu and inspect current state",
+    "ml": "നടപടി പരാജയപ്പെട്ടു; മെനു വീണ്ടും തുറന്ന് നിലവിലെ സ്ഥിതി പരിശോധിക്കുക"
+  },
+  "This setting is group-wide": {
+    "en": "This setting is group-wide",
+    "ml": "ഈ ക്രമീകരണം മുഴുവൻ ഗ്രൂപ്പിനും ബാധകമാണ്"
+  },
+  "Setting changed since preview; reopen the menu": {
+    "en": "Setting changed since preview; reopen the menu",
+    "ml": "പ്രിവ്യൂവിന് ശേഷം ക്രമീകരണം മാറി; മെനു വീണ്ടും തുറക്കുക"
+  },
+  "Destination settings changed since preview": {
+    "en": "Destination settings changed since preview",
+    "ml": "പ്രിവ്യൂവിന് ശേഷം ലക്ഷ്യഗ്രൂപ്പിന്റെ ക്രമീകരണങ്ങൾ മാറി"
+  },
+  "Temporarily tighten bot moderation for 10 minutes?": {
+    "en": "Temporarily tighten bot moderation for 10 minutes?",
+    "ml": "ബോട്ടിന്റെ നിയന്ത്രണം 10 മിനിറ്റ് ശക്തമാക്കണോ?"
+  },
+  "Open /panel inside a forum topic first": {
+    "en": "Open /panel inside a forum topic first",
+    "ml": "ആദ്യം ഫോറം വിഷയത്തിനുള്ളിൽ /panel തുറക്കുക"
+  },
+  "Cancel this scheduled post?": {
+    "en": "Cancel this scheduled post?",
+    "ml": "ഈ ഷെഡ്യൂൾ ചെയ്ത പോസ്റ്റ് റദ്ദാക്കണോ?"
+  },
+  "Event actions": {
+    "en": "Event actions",
+    "ml": "പരിപാടി നടപടികൾ"
+  },
+  "Publish RSVP card": {
+    "en": "Publish RSVP card",
+    "ml": "പങ്കെടുക്കൽ ബട്ടൺ പ്രസിദ്ധീകരിക്കുക"
+  },
+  "Cancel event": {
+    "en": "Cancel event",
+    "ml": "പരിപാടി റദ്ദാക്കുക"
+  },
+  "Cancel this event?": {
+    "en": "Cancel this event?",
+    "ml": "ഈ പരിപാടി റദ്ദാക്കണോ?"
+  },
+  "This changes which observed group data can be processed. A notice will be posted in the group. Confirm?": {
+    "en": "This changes which observed group data can be processed. A notice will be posted in the group. Confirm?",
+    "ml": "രേഖപ്പെടുത്തിയ ഗ്രൂപ്പ് വിവരങ്ങളുടെ പ്രോസസ്സിംഗ് മാറും. ഗ്രൂപ്പിൽ അറിയിപ്പ് നൽകും. സ്ഥിരീകരിക്കണോ?"
+  },
+  "AI notice: summary capture / external processing configuration is changing. /privacy offers export, deletion and AI capture opt-out. Only observed messages are available.": {
+    "en": "AI notice: summary capture / external processing configuration is changing. /privacy offers export, deletion and AI capture opt-out. Only observed messages are available.",
+    "ml": "AI അറിയിപ്പ്: സംഗ്രഹ രേഖപ്പെടുത്തൽ / പുറം സേവന പ്രോസസ്സിംഗ് മാറുന്നു. /privacy വഴി വിവരങ്ങൾ എടുക്കാനും നീക്കാനും AI രേഖപ്പെടുത്തലിൽനിന്ന് പിന്മാറാനും കഴിയും. കണ്ട സന്ദേശങ്ങൾ മാത്രം ലഭ്യമാണ്."
+  },
+  "Delete your stored activity and support metadata? Safety records, Telegram copies and backups may remain.": {
+    "en": "Delete your stored activity and support metadata? Safety records, Telegram copies and backups may remain.",
+    "ml": "നിങ്ങളുടെ പ്രവർത്തനങ്ങളും സപ്പോർട്ട് മെറ്റാഡാറ്റയും നീക്കണോ? സുരക്ഷാ രേഖകളും Telegram പകർപ്പുകളും ബാക്കപ്പുകളും ശേഷിക്കാം."
+  },
+  "Confirm deletion": {
+    "en": "Confirm deletion",
+    "ml": "നീക്കൽ സ്ഥിരീകരിക്കുക"
+  },
+  "Personal activity removed. Active safety records and separate backups may remain.": {
+    "en": "Personal activity removed. Active safety records and separate backups may remain.",
+    "ml": "വ്യക്തിഗത പ്രവർത്തനങ്ങൾ നീക്കി. സജീവ സുരക്ഷാ രേഖകളും പ്രത്യേക ബാക്കപ്പുകളും ശേഷിക്കാം."
+  },
+  "Record this appeal decision?": {
+    "en": "Record this appeal decision?",
+    "ml": "ഈ അപ്പീൽ തീരുമാനം രേഖപ്പെടുത്തണോ?"
+  },
+  "Unknown action": {
+    "en": "Unknown action",
+    "ml": "അറിയാത്ത നടപടി"
+  },
+  "Thresholds: 2–100 users, 5–300 second window, 60–3600 second lockdown": {
+    "en": "Thresholds: 2–100 users, 5–300 second window, 60–3600 second lockdown",
+    "ml": "പരിധികൾ: 2–100 അംഗങ്ങൾ, 5–300 സെക്കൻഡ് നിരീക്ഷണം, 60–3600 സെക്കൻഡ് നിയന്ത്രണം"
+  },
+  "Unknown template": {
+    "en": "Unknown template",
+    "ml": "അറിയാത്ത മാതൃക"
+  },
+  "Use 1–3650 days": {
+    "en": "Use 1–3650 days",
+    "ml": "1–3650 ദിവസം ഉപയോഗിക്കുക"
+  },
+  "Submit this reason to group administrators?": {
+    "en": "Submit this reason to group administrators?",
+    "ml": "ഈ കാരണം ഗ്രൂപ്പ് അഡ്മിനുകൾക്ക് സമർപ്പിക്കണോ?"
+  },
+  "No known groups. Use /panel GROUP_ID or /panel inside your group.": {
+    "en": "No known groups. Use /panel GROUP_ID or /panel inside your group.",
+    "ml": "അറിയാവുന്ന ഗ്രൂപ്പുകളില്ല. /panel GROUP_ID അല്ലെങ്കിൽ ഗ്രൂപ്പിനുള്ളിൽ /panel ഉപയോഗിക്കുക."
+  },
+  "Open group": {
+    "en": "Open group",
+    "ml": "ഗ്രൂപ്പ് തുറക്കുക"
+  },
+  "Open /privacy in a private chat": {
+    "en": "Open /privacy in a private chat",
+    "ml": "സ്വകാര്യ ചാറ്റിൽ /privacy തുറക്കുക"
+  },
+  "Your privacy controls": {
+    "en": "Your privacy controls",
+    "ml": "നിങ്ങളുടെ സ്വകാര്യതാ നിയന്ത്രണങ്ങൾ"
+  },
+  "Export my data": {
+    "en": "Export my data",
+    "ml": "എന്റെ വിവരങ്ങൾ എടുക്കുക"
+  },
+  "Delete my activity": {
+    "en": "Delete my activity",
+    "ml": "എന്റെ പ്രവർത്തനങ്ങൾ നീക്കുക"
+  },
+  "Opt out of AI capture": {
+    "en": "Opt out of AI capture",
+    "ml": "AI രേഖപ്പെടുത്തലിൽനിന്ന് പിന്മാറുക"
+  },
+  "Submit appeals in private: /appeal GROUP_ID": {
+    "en": "Submit appeals in private: /appeal GROUP_ID",
+    "ml": "സ്വകാര്യമായി അപ്പീൽ നൽകുക: /appeal GROUP_ID"
+  },
+  "No eligible recorded bot action in this group": {
+    "en": "No eligible recorded bot action in this group",
+    "ml": "ഈ ഗ്രൂപ്പിൽ യോഗ്യമായ ബോട്ട് നടപടിയുടെ രേഖയില്ല"
+  },
+  "Review appeals privately: /appeals GROUP_ID": {
+    "en": "Review appeals privately: /appeals GROUP_ID",
+    "ml": "സ്വകാര്യമായി അപ്പീൽ പരിശോധിക്കുക: /appeals GROUP_ID"
+  },
+  "Review appeal": {
+    "en": "Review appeal",
+    "ml": "അപ്പീൽ പരിശോധിക്കുക"
+  },
+  "Support staff access required": {
+    "en": "Support staff access required",
+    "ml": "സപ്പോർട്ട് സ്റ്റാഫിന്റെ അനുമതി വേണം"
+  },
+  "Unknown ticket": {
+    "en": "Unknown ticket",
+    "ml": "അറിയാത്ത ടിക്കറ്റ്"
+  },
+  "Ticket actions": {
+    "en": "Ticket actions",
+    "ml": "ടിക്കറ്റ് നടപടികൾ"
+  },
+  "Assign to me": {
+    "en": "Assign to me",
+    "ml": "എന്നെ ഏൽപ്പിക്കുക"
+  },
+  "High priority": {
+    "en": "High priority",
+    "ml": "ഉയർന്ന മുൻഗണന"
+  },
+  "Internal note": {
+    "en": "Internal note",
+    "ml": "സ്റ്റാഫ് കുറിപ്പ്"
+  },
+  "Close ticket": {
+    "en": "Close ticket",
+    "ml": "ടിക്കറ്റ് അടയ്ക്കുക"
+  },
+  "Prepare albums in private": {
+    "en": "Prepare albums in private",
+    "ml": "ആൽബങ്ങൾ സ്വകാര്യ ചാറ്റിൽ തയ്യാറാക്കുക"
+  },
+  "Album draft saved": {
+    "en": "Album draft saved",
+    "ml": "ആൽബം ഡ്രാഫ്റ്റ് സേവ് ചെയ്തു"
+  },
+  "Use /faq inside the opted-in group": {
+    "en": "Use /faq inside the opted-in group",
+    "ml": "സമ്മതം നൽകിയ ഗ്രൂപ്പിനുള്ളിൽ /faq ഉപയോഗിക്കുക"
+  },
+  "Private super-admin access required": {
+    "en": "Private super-admin access required",
+    "ml": "സ്വകാര്യ സൂപ്പർ അഡ്മിൻ അനുമതി വേണം"
+  },
+  "Open this menu inside a forum topic": {
+    "en": "Open this menu inside a forum topic",
+    "ml": "ഫോറം വിഷയത്തിനുള്ളിൽ ഈ മെനു തുറക്കുക"
+  },
+  "Setting is not topic-specific": {
+    "en": "Setting is not topic-specific",
+    "ml": "ഈ ക്രമീകരണം വിഷയത്തിന് പ്രത്യേകമല്ല"
+  },
+  "Flood history is not changed. Joining-state locks and CAPTCHA are evaluated separately.": {
+    "en": "Flood history is not changed. Joining-state locks and CAPTCHA are evaluated separately.",
+    "ml": "ഫ്ലഡ് ചരിത്രം മാറ്റുന്നില്ല. പുതിയ അംഗങ്ങളുടെ നിയന്ത്രണവും CAPTCHAയും പ്രത്യേകം വിലയിരുത്തും."
+  },
+  "No recorded bot action or missing reason": {
+    "en": "No recorded bot action or missing reason",
+    "ml": "ബോട്ട് നടപടിയുടെ രേഖയില്ല അല്ലെങ്കിൽ കാരണം നൽകിയിട്ടില്ല"
+  },
+  "An appeal already exists for this action": {
+    "en": "An appeal already exists for this action",
+    "ml": "ഈ നടപടിക്ക് ഇതിനകം അപ്പീൽ ഉണ്ട്"
+  },
+  "A private moderation appeal is awaiting administrator review. Use /appeals.": {
+    "en": "A private moderation appeal is awaiting administrator review. Use /appeals.",
+    "ml": "സ്വകാര്യ മോഡറേഷൻ അപ്പീൽ അഡ്മിൻ പരിശോധന കാത്തിരിക്കുന്നു. സ്വകാര്യ ചാറ്റിൽ /appeals GROUP_ID ഉപയോഗിക്കുക."
+  },
+  "Appeal already handled or unavailable": {
+    "en": "Appeal already handled or unavailable",
+    "ml": "അപ്പീൽ ഇതിനകം കൈകാര്യം ചെയ്തു അല്ലെങ്കിൽ ലഭ്യമല്ല"
+  },
+  "A decision reason is required": {
+    "en": "A decision reason is required",
+    "ml": "തീരുമാനത്തിന് കാരണം വേണം"
+  },
+  "Restriction changed or is not eligible; inspect it manually": {
+    "en": "Restriction changed or is not eligible; inspect it manually",
+    "ml": "നിയന്ത്രണം മാറി അല്ലെങ്കിൽ യോഗ്യമല്ല; നേരിട്ട് പരിശോധിക്കുക"
+  },
+  "Federation ban requires federation review": {
+    "en": "Federation ban requires federation review",
+    "ml": "ഫെഡറേഷൻ വിലക്കിന് ഫെഡറേഷൻ പരിശോധന വേണം"
+  },
+  "Unknown draft in this destination": {
+    "en": "Unknown draft in this destination",
+    "ml": "ഈ ലക്ഷ്യസ്ഥാനത്ത് അറിയാത്ത ഡ്രാഫ്റ്റ്"
+  },
+  "This is not your publishing job": {
+    "en": "This is not your publishing job",
+    "ml": "ഇത് നിങ്ങളുടെ പ്രസിദ്ധീകരണ ജോലിയല്ല"
+  },
+  "Only pending jobs may be changed": {
+    "en": "Only pending jobs may be changed",
+    "ml": "കാത്തിരിക്കുന്ന ജോലികൾ മാത്രമേ മാറ്റാനാകൂ"
+  },
+  "Choose a future date": {
+    "en": "Choose a future date",
+    "ml": "ഭാവിയിലെ തീയതി തിരഞ്ഞെടുക്കുക"
+  },
+  "Unknown calendar action": {
+    "en": "Unknown calendar action",
+    "ml": "അറിയാത്ത കലണ്ടർ നടപടി"
+  },
+  "Send an album of 2–10 photos/videos to this private chat, then reply /album NAME": {
+    "en": "Send an album of 2–10 photos/videos to this private chat, then reply /album NAME",
+    "ml": "ഈ സ്വകാര്യ ചാറ്റിലേക്ക് 2–10 ഫോട്ടോ/വീഡിയോ ആൽബം അയച്ച് അതിന് മറുപടിയായി /album NAME അയക്കുക"
+  },
+  "An event needs a title and future date": {
+    "en": "An event needs a title and future date",
+    "ml": "പരിപാടിക്ക് ശീർഷകവും ഭാവി തീയതിയും വേണം"
+  },
+  "Unknown event": {
+    "en": "Unknown event",
+    "ml": "അറിയാത്ത പരിപാടി"
+  },
+  "Event is unavailable": {
+    "en": "Event is unavailable",
+    "ml": "പരിപാടി ലഭ്യമല്ല"
+  },
+  "RSVP / withdraw": {
+    "en": "RSVP / withdraw",
+    "ml": "പങ്കെടുക്കുക / പിന്മാറുക"
+  },
+  "Event changed or ended": {
+    "en": "Event changed or ended",
+    "ml": "പരിപാടി മാറി അല്ലെങ്കിൽ അവസാനിച്ചു"
+  },
+  "Current group membership required": {
+    "en": "Current group membership required",
+    "ml": "നിലവിൽ ഗ്രൂപ്പ് അംഗമായിരിക്കണം"
+  },
+  "Use a question and 2–10 short answers": {
+    "en": "Use a question and 2–10 short answers",
+    "ml": "ഒരു ചോദ്യവും 2–10 ചെറിയ ഉത്തരങ്ങളും നൽകുക"
+  },
+  "Invalid correct answer index": {
+    "en": "Invalid correct answer index",
+    "ml": "ശരിയുത്തരത്തിന്റെ സൂചിക അസാധുവാണ്"
+  },
+  "Assignee must be current support staff": {
+    "en": "Assignee must be current support staff",
+    "ml": "ഏൽപ്പിക്കുന്ന വ്യക്തി നിലവിലെ സപ്പോർട്ട് സ്റ്റാഫായിരിക്കണം"
+  },
+  "Invalid priority": {
+    "en": "Invalid priority",
+    "ml": "അസാധുവായ മുൻഗണന"
+  },
+  "Note must be 1–2000 characters": {
+    "en": "Note must be 1–2000 characters",
+    "ml": "കുറിപ്പ് 1–2000 അക്ഷരങ്ങളായിരിക്കണം"
+  },
+  "Unknown ticket action": {
+    "en": "Unknown ticket action",
+    "ml": "അറിയാത്ത ടിക്കറ്റ് നടപടി"
+  },
+  "Telegram copies and operator backups are separate. Active safety restrictions, bans and moderation evidence may be retained.": {
+    "en": "Telegram copies and operator backups are separate. Active safety restrictions, bans and moderation evidence may be retained.",
+    "ml": "Telegram പകർപ്പുകളും ഓപ്പറേറ്റർ ബാക്കപ്പുകളും വേറെയാണ്. സജീവ നിയന്ത്രണങ്ങളും വിലക്കുകളും മോഡറേഷൻ തെളിവുകളും സൂക്ഷിച്ചേക്കാം."
+  },
+  "AI is disabled; both operator and group opt-in are required": {
+    "en": "AI is disabled; both operator and group opt-in are required",
+    "ml": "AI ഓഫാണ്; ഓപ്പറേറ്ററുടെയും ഗ്രൂപ്പിന്റെയും സമ്മതം വേണം"
+  },
+  "Unknown AI mode": {
+    "en": "Unknown AI mode",
+    "ml": "അറിയാത്ത AI മോഡ്"
+  },
+  "AI endpoint must not embed credentials or query parameters": {
+    "en": "AI endpoint must not embed credentials or query parameters",
+    "ml": "AI വിലാസത്തിൽ രഹസ്യങ്ങളും ക്വറി പാരാമീറ്ററുകളും ഉൾപ്പെടുത്തരുത്"
+  },
+  "External AI requires HTTPS and separate operator/group consent": {
+    "en": "External AI requires HTTPS and separate operator/group consent",
+    "ml": "പുറം AIക്ക് HTTPSയും ഓപ്പറേറ്ററുടെയും ഗ്രൂപ്പിന്റെയും പ്രത്യേക സമ്മതവും വേണം"
+  },
+  "Invalid AI endpoint": {
+    "en": "Invalid AI endpoint",
+    "ml": "അസാധുവായ AI വിലാസം"
+  },
+  "Operator must configure an installed Ollama model": {
+    "en": "Operator must configure an installed Ollama model",
+    "ml": "ഇൻസ്റ്റാൾ ചെയ്ത Ollama മോഡൽ ഓപ്പറേറ്റർ ക്രമീകരിക്കണം"
+  },
+  "Wait 15 seconds before another AI request": {
+    "en": "Wait 15 seconds before another AI request",
+    "ml": "അടുത്ത AI അഭ്യർഥനയ്ക്ക് 15 സെക്കൻഡ് കാത്തിരിക്കുക"
+  },
+  "No approved knowledge is available.": {
+    "en": "No approved knowledge is available.",
+    "ml": "അംഗീകരിച്ച അറിവ് ലഭ്യമല്ല."
+  },
+  "Summary capture is not enabled with group notice": {
+    "en": "Summary capture is not enabled with group notice",
+    "ml": "ഗ്രൂപ്പ് അറിയിപ്പോടെ സംഗ്രഹ രേഖപ്പെടുത്തൽ പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല"
+  },
+  "AI returned no answer": {
+    "en": "AI returned no answer",
+    "ml": "AI മറുപടി നൽകിയില്ല"
+  },
+  "Use HH:MM": {
+    "en": "Use HH:MM",
+    "ml": "HH:MM രൂപം ഉപയോഗിക്കുക"
+  },
+  "Weekdays must be 0 (Monday) through 6 (Sunday)": {
+    "en": "Weekdays must be 0 (Monday) through 6 (Sunday)",
+    "ml": "ദിവസങ്ങൾ 0 (തിങ്കൾ) മുതൽ 6 (ഞായർ) വരെയായിരിക്കണം"
+  },
+  "No valid recurrence within a year": {
+    "en": "No valid recurrence within a year",
+    "ml": "ഒരു വർഷത്തിനുള്ളിൽ സാധുവായ ആവർത്തനം ഇല്ല"
+  },
+  "Invalid change": {
+    "en": "Invalid change",
+    "ml": "അസാധുവായ മാറ്റം"
+  },
+  "Preview and confirm changes first": {
+    "en": "Preview and confirm changes first",
+    "ml": "ആദ്യം മാറ്റങ്ങൾ പരിശോധിച്ച് സ്ഥിരീകരിക്കുക"
+  },
+  "Confirmation expired or belongs to another administrator": {
+    "en": "Confirmation expired or belongs to another administrator",
+    "ml": "സ്ഥിരീകരണം കാലഹരണപ്പെട്ടു അല്ലെങ്കിൽ മറ്റൊരു അഡ്മിന്റേതാണ്"
+  },
+  "Settings changed since preview; refresh": {
+    "en": "Settings changed since preview; refresh",
+    "ml": "പ്രിവ്യൂവിന് ശേഷം ക്രമീകരണങ്ങൾ മാറി; പുതുക്കുക"
+  },
+  "Invalid raid policy": {
+    "en": "Invalid raid policy",
+    "ml": "അസാധുവായ കൂട്ട ആക്രമണ നയം"
+  },
+  "Invalid raid threshold": {
+    "en": "Invalid raid threshold",
+    "ml": "അസാധുവായ കൂട്ട ആക്രമണ പരിധി"
+  },
+  "Invalid retention": {
+    "en": "Invalid retention",
+    "ml": "അസാധുവായ സൂക്ഷിക്കൽ കാലാവധി"
+  },
+  "Operator support inbox is separate from group administration": {
+    "en": "Operator support inbox is separate from group administration",
+    "ml": "ഓപ്പറേറ്ററുടെ സപ്പോർട്ട് ഇൻബോക്സ് ഗ്രൂപ്പ് ഭരണത്തിൽനിന്ന് വേറെയാണ്"
+  },
+  "Invalid AI setting": {
+    "en": "Invalid AI setting",
+    "ml": "അസാധുവായ AI ക്രമീകരണം"
+  },
+  "Unknown console action": {
+    "en": "Unknown console action",
+    "ml": "അറിയാത്ത പാനൽ നടപടി"
+  },
+  "Template contains private or unsupported settings": {
+    "en": "Template contains private or unsupported settings",
+    "ml": "മാതൃകയിൽ സ്വകാര്യമായതോ പിന്തുണയ്ക്കാത്തതോ ആയ ക്രമീകരണങ്ങളുണ്ട്"
+  },
+  "You do not have permission for this action in this chat": {
+    "en": "You do not have permission for this action in this chat",
+    "ml": "ഈ ചാറ്റിൽ ഈ നടപടിക്കുള്ള അനുമതി നിങ്ങൾക്കില്ല"
+  },
+  "Administrators and the bot are protected": {
+    "en": "Administrators and the bot are protected",
+    "ml": "അഡ്മിനുകളെയും ബോട്ടിനെയും സംരക്ഷിച്ചിട്ടുണ്ട്"
+  },
+  "Use a duration such as 60s, 10m, 2h or 7d": {
+    "en": "Use a duration such as 60s, 10m, 2h or 7d",
+    "ml": "60s, 10m, 2h അല്ലെങ്കിൽ 7d പോലുള്ള ദൈർഘ്യം നൽകുക"
+  },
+  "Ambiguous/nonexistent local time: supply an explicit UTC offset": {
+    "en": "Ambiguous/nonexistent local time: supply an explicit UTC offset",
+    "ml": "അവ്യക്തമായതോ നിലവിലില്ലാത്തതോ ആയ പ്രാദേശിക സമയം: UTC വ്യത്യാസം വ്യക്തമാക്കുക"
+  },
+  "Timed restrictions must be 60 seconds to 365 days": {
+    "en": "Timed restrictions must be 60 seconds to 365 days",
+    "ml": "സമയപരിധിയുള്ള നിയന്ത്രണം 60 സെക്കൻഡ് മുതൽ 365 ദിവസം വരെയാകണം"
+  },
+  "Restrictions require a supergroup": {
+    "en": "Restrictions require a supergroup",
+    "ml": "നിയന്ത്രണങ്ങൾക്ക് സൂപ്പർഗ്രൂപ്പ് വേണം"
+  },
+  "Use /verify first for a pending CAPTCHA": {
+    "en": "Use /verify first for a pending CAPTCHA",
+    "ml": "തീർപ്പാകാത്ത CAPTCHAക്ക് ആദ്യം /verify ഉപയോഗിക്കുക"
+  },
+  "Provide a JSON object of valid boolean ChatPermissions": {
+    "en": "Provide a JSON object of valid boolean ChatPermissions",
+    "ml": "സാധുവായ ബൂളിയൻ ChatPermissions അടങ്ങിയ JSON നൽകുക"
+  },
+  "Unknown moderation action": {
+    "en": "Unknown moderation action",
+    "ml": "അറിയാത്ത മോഡറേഷൻ നടപടി"
+  },
+  "Unknown setting": {
+    "en": "Unknown setting",
+    "ml": "അറിയാത്ത ക്രമീകരണം"
+  },
+  "Wrong value type; use JSON strings, numbers, true/false or lists": {
+    "en": "Wrong value type; use JSON strings, numbers, true/false or lists",
+    "ml": "മൂല്യത്തിന്റെ തരം തെറ്റാണ്; JSON വാചകം, സംഖ്യ, true/false അല്ലെങ്കിൽ പട്ടിക ഉപയോഗിക്കുക"
+  },
+  "Supported languages: en, ml": {
+    "en": "Supported languages: en, ml",
+    "ml": "പിന്തുണയ്ക്കുന്ന ഭാഷകൾ: en, ml"
+  },
+  "Unsupported lock; see docs/COMMANDS.md": {
+    "en": "Unsupported lock; see docs/COMMANDS.md",
+    "ml": "പിന്തുണയ്ക്കാത്ത വിലക്ക്; docs/COMMANDS.md കാണുക"
+  },
+  "Unsupported CAPTCHA": {
+    "en": "Unsupported CAPTCHA",
+    "ml": "പിന്തുണയ്ക്കാത്ത CAPTCHA"
+  },
+  "Use 60..86400 seconds": {
+    "en": "Use 60..86400 seconds",
+    "ml": "60–86400 സെക്കൻഡ് ഉപയോഗിക്കുക"
+  },
+  "Use mute, ban or kick": {
+    "en": "Use mute, ban or kick",
+    "ml": "mute, ban അല്ലെങ്കിൽ kick ഉപയോഗിക്കുക"
+  },
+  "Use 1..1000": {
+    "en": "Use 1..1000",
+    "ml": "1–1000 ഉപയോഗിക്കുക"
+  },
+  "Use 0..31536000": {
+    "en": "Use 0..31536000",
+    "ml": "0–31536000 ഉപയോഗിക്കുക"
+  },
+  "Configure PUBLIC_URL with HTTPS first": {
+    "en": "Configure PUBLIC_URL with HTTPS first",
+    "ml": "ആദ്യം HTTPS ഉപയോഗിച്ച് PUBLIC_URL ക്രമീകരിക്കുക"
+  },
+  "Configure all Turnstile environment values first": {
+    "en": "Configure all Turnstile environment values first",
+    "ml": "ആദ്യം എല്ലാ Turnstile പരിസ്ഥിതി മൂല്യങ്ങളും ക്രമീകരിക്കുക"
+  },
+  "Text too long": {
+    "en": "Text too long",
+    "ml": "വാചകത്തിന് നീളം കൂടുതലാണ്"
+  },
+  "Rule needs type and match (1..256 characters)": {
+    "en": "Rule needs type and match (1..256 characters)",
+    "ml": "നിയമത്തിന് typeയും matchയും വേണം (1–256 അക്ഷരങ്ങൾ)"
+  },
+  "Invalid rule action": {
+    "en": "Invalid rule action",
+    "ml": "അസാധുവായ നിയമനടപടി"
+  },
+  "Invalid audience/bots value": {
+    "en": "Invalid audience/bots value",
+    "ml": "അസാധുവായ audience/bots മൂല്യം"
+  },
+  "No active verification; ask a group admin": {
+    "en": "No active verification; ask a group admin",
+    "ml": "സജീവ പരിശോധനയില്ല; ഗ്രൂപ്പ് അഡ്മിനോട് ചോദിക്കുക"
+  },
+  "Invalid verification": {
+    "en": "Invalid verification",
+    "ml": "അസാധുവായ പരിശോധന"
+  },
+  "Verification expired": {
+    "en": "Verification expired",
+    "ml": "പരിശോധനയുടെ കാലാവധി കഴിഞ്ഞു"
+  },
+  "Verification expired or already used": {
+    "en": "Verification expired or already used",
+    "ml": "പരിശോധന കാലഹരണപ്പെട്ടു അല്ലെങ്കിൽ ഉപയോഗിച്ചു കഴിഞ്ഞു"
+  },
+  "Too many attempts": {
+    "en": "Too many attempts",
+    "ml": "ശ്രമങ്ങൾ അധികമായി"
+  },
+  "Too many attempts; contact an administrator": {
+    "en": "Too many attempts; contact an administrator",
+    "ml": "ശ്രമങ്ങൾ അധികമായി; അഡ്മിനെ ബന്ധപ്പെടുക"
+  },
+  "Reply to a member message or provide a numeric user ID": {
+    "en": "Reply to a member message or provide a numeric user ID",
+    "ml": "അംഗത്തിന്റെ സന്ദേശത്തിന് മറുപടി നൽകുക അല്ലെങ്കിൽ സംഖ്യാ user ID നൽകുക"
+  },
+  "Bot operators may send service announcements here. /unsubscribe opts out; /subscribe opts in again.": {
+    "en": "Bot operators may send service announcements here. /unsubscribe opts out; /subscribe opts in again.",
+    "ml": "ബോട്ട് ഓപ്പറേറ്റർ ഇവിടെ സേവന അറിയിപ്പുകൾ അയച്ചേക്കാം. /unsubscribe പിന്മാറും; /subscribe വീണ്ടും ചേർക്കും."
+  },
+  "Use /help for private commands": {
+    "en": "Use /help for private commands",
+    "ml": "സ്വകാര്യ കമാൻഡുകൾക്ക് /help ഉപയോഗിക്കുക"
+  },
+  "Current members only": {
+    "en": "Current members only",
+    "ml": "നിലവിലെ അംഗങ്ങൾക്ക് മാത്രം"
+  },
+  "You cannot vote/report yourself": {
+    "en": "You cannot vote/report yourself",
+    "ml": "സ്വയം വോട്ട് ചെയ്യാനോ റിപ്പോർട്ട് ചെയ്യാനോ കഴിയില്ല"
+  },
+  "Already submitted today for this member": {
+    "en": "Already submitted today for this member",
+    "ml": "ഈ അംഗത്തിന് ഇന്ന് ഇതിനകം സമർപ്പിച്ചു"
+  },
+  "Reputation +1": {
+    "en": "Reputation +1",
+    "ml": "മതിപ്പ് +1"
+  },
+  "Reply to content, or /save name text": {
+    "en": "Reply to content, or /save name text",
+    "ml": "ഉള്ളടക്കത്തിന് മറുപടി നൽകുക അല്ലെങ്കിൽ /save name text ഉപയോഗിക്കുക"
+  },
+  "Save the note first": {
+    "en": "Save the note first",
+    "ml": "ആദ്യം കുറിപ്പ് സേവ് ചെയ്യുക"
+  },
+  "Invalid command name": {
+    "en": "Invalid command name",
+    "ml": "അസാധുവായ കമാൻഡ് പേര്"
+  },
+  "Unknown note": {
+    "en": "Unknown note",
+    "ml": "അറിയാത്ത കുറിപ്പ്"
+  },
+  "Reply to the message": {
+    "en": "Reply to the message",
+    "ml": "സന്ദേശത്തിന് മറുപടി നൽകുക"
+  },
+  "Purge supports at most 100 messages per command": {
+    "en": "Purge supports at most 100 messages per command",
+    "ml": "ഒരു കമാൻഡിൽ പരമാവധി 100 സന്ദേശങ്ങൾ നീക്കാം"
+  },
+  "Unknown report": {
+    "en": "Unknown report",
+    "ml": "അറിയാത്ത റിപ്പോർട്ട്"
+  },
+  "Unknown command; /help": {
+    "en": "Unknown command; /help",
+    "ml": "അറിയാത്ത കമാൻഡ്; /help"
+  },
+  "Unknown federation": {
+    "en": "Unknown federation",
+    "ml": "അറിയാത്ത ഫെഡറേഷൻ"
+  },
+  "Only the federation owner, in a subscribed chat": {
+    "en": "Only the federation owner, in a subscribed chat",
+    "ml": "അംഗമായ ചാറ്റിലെ ഫെഡറേഷൻ ഉടമയ്ക്ക് മാത്രം"
+  },
+  "Unknown federation command": {
+    "en": "Unknown federation command",
+    "ml": "അറിയാത്ത ഫെഡറേഷൻ കമാൻഡ്"
+  },
+  "Federation updated. Actions are queued; inspect /dashboard jobs for failures.": {
+    "en": "Federation updated. Actions are queued; inspect /dashboard jobs for failures.",
+    "ml": "ഫെഡറേഷൻ പുതുക്കി. നടപടികൾ ക്യൂവിലാണ്; പരാജയങ്ങൾ /dashboard ജോലികളിൽ പരിശോധിക്കുക."
+  },
+  "Support is not configured": {
+    "en": "Support is not configured",
+    "ml": "സപ്പോർട്ട് ക്രമീകരിച്ചിട്ടില്ല"
+  },
+  "Send your message or attachment. It will be shared with the configured support team. /close ends this conversation.": {
+    "en": "Send your message or attachment. It will be shared with the configured support team. /close ends this conversation.",
+    "ml": "സന്ദേശമോ ഫയലോ അയക്കുക. അത് ബോട്ട് ഓപ്പറേറ്ററുടെ സപ്പോർട്ട് ടീമുമായി പങ്കിടും. /close സംഭാഷണം അവസാനിപ്പിക്കും."
+  },
+  "Support conversation closed.": {
+    "en": "Support conversation closed.",
+    "ml": "സപ്പോർട്ട് സംഭാഷണം അടച്ചു."
+  },
+  "Support admins only": {
+    "en": "Support admins only",
+    "ml": "സപ്പോർട്ട് അഡ്മിനുകൾക്ക് മാത്രം"
+  },
+  "Ticket closed": {
+    "en": "Ticket closed",
+    "ml": "ടിക്കറ്റ് അടച്ചു"
+  },
+  "Use /blockuser USER_ID on|off": {
+    "en": "Use /blockuser USER_ID on|off",
+    "ml": "/blockuser USER_ID on|off ഉപയോഗിക്കുക"
+  },
+  "Reply to the broadcast content; recipients must use /subscribe first": {
+    "en": "Reply to the broadcast content; recipients must use /subscribe first",
+    "ml": "അറിയിപ്പിന്റെ ഉള്ളടക്കത്തിന് മറുപടി നൽകുക; സ്വീകർത്താക്കൾ ആദ്യം /subscribe ഉപയോഗിക്കണം"
+  },
+  "Please wait before sending another support message": {
+    "en": "Please wait before sending another support message",
+    "ml": "അടുത്ത സപ്പോർട്ട് സന്ദേശത്തിന് മുമ്പ് കാത്തിരിക്കുക"
+  },
+  "Select a destination first: /channel CHAT_ID": {
+    "en": "Select a destination first: /channel CHAT_ID",
+    "ml": "ആദ്യം ലക്ഷ്യസ്ഥാനം തിരഞ്ഞെടുക്കുക: /channel CHAT_ID"
+  },
+  "/draft NAME text, or reply to content": {
+    "en": "/draft NAME text, or reply to content",
+    "ml": "/draft NAME വാചകം നൽകുക, അല്ലെങ്കിൽ ഉള്ളടക്കത്തിന് മറുപടി നൽകുക"
+  },
+  "Supply content": {
+    "en": "Supply content",
+    "ml": "ഉള്ളടക്കം നൽകുക"
+  },
+  "No drafts": {
+    "en": "No drafts",
+    "ml": "ഡ്രാഫ്റ്റുകളില്ല"
+  },
+  "Unknown draft": {
+    "en": "Unknown draft",
+    "ml": "അറിയാത്ത ഡ്രാഫ്റ്റ്"
+  },
+  "Use at most 10 rows of buttons": {
+    "en": "Use at most 10 rows of buttons",
+    "ml": "പരമാവധി 10 വരി ബട്ടണുകൾ ഉപയോഗിക്കുക"
+  },
+  "At most 8 buttons per row": {
+    "en": "At most 8 buttons per row",
+    "ml": "ഒരു വരിയിൽ പരമാവധി 8 ബട്ടണുകൾ"
+  },
+  "Each button needs text and an http(s)/tg URL": {
+    "en": "Each button needs text and an http(s)/tg URL",
+    "ml": "ഓരോ ബട്ടണിനും textയും http(s)/tg URLഉം വേണം"
+  },
+  "Schedule must be in the future": {
+    "en": "Schedule must be in the future",
+    "ml": "ഷെഡ്യൂൾ ഭാവിയിലായിരിക്കണം"
+  },
+  "Minimum recurrence is 60 seconds": {
+    "en": "Minimum recurrence is 60 seconds",
+    "ml": "കുറഞ്ഞ ആവർത്തന ഇടവേള 60 സെക്കൻഡാണ്"
+  },
+  "This is not your job": {
+    "en": "This is not your job",
+    "ml": "ഇത് നിങ്ങളുടെ ജോലിയല്ല"
+  },
+  "Only pending jobs can be rescheduled": {
+    "en": "Only pending jobs can be rescheduled",
+    "ml": "കാത്തിരിക്കുന്ന ജോലികൾ മാത്രമേ വീണ്ടും ഷെഡ്യൂൾ ചെയ്യാനാകൂ"
+  },
+  "Draft no longer exists": {
+    "en": "Draft no longer exists",
+    "ml": "ഡ്രാഫ്റ്റ് ഇപ്പോൾ ലഭ്യമല്ല"
+  },
+  "Unknown post in your selected destination": {
+    "en": "Unknown post in your selected destination",
+    "ml": "തിരഞ്ഞെടുത്ത ലക്ഷ്യസ്ഥാനത്ത് അറിയാത്ത പോസ്റ്റ്"
+  },
+  "This media type cannot be edited": {
+    "en": "This media type cannot be edited",
+    "ml": "ഈ മീഡിയ തരം തിരുത്താനാവില്ല"
+  },
+  "Post edited": {
+    "en": "Post edited",
+    "ml": "പോസ്റ്റ് തിരുത്തി"
+  },
+  "Article needs title and a content node list": {
+    "en": "Article needs title and a content node list",
+    "ml": "ലേഖനത്തിന് ശീർഷകവും ഉള്ളടക്ക നോഡുകളുടെ പട്ടികയും വേണം"
+  },
+  "Article content is too large": {
+    "en": "Article content is too large",
+    "ml": "ലേഖനത്തിന്റെ ഉള്ളടക്കം വളരെ വലുതാണ്"
+  },
+  "Unknown job type": {
+    "en": "Unknown job type",
+    "ml": "അറിയാത്ത ജോലി തരം"
+  },
+  "This challenge belongs to another member": {
+    "en": "This challenge belongs to another member",
+    "ml": "ഈ പരിശോധന മറ്റൊരു അംഗത്തിന്റേതാണ്"
+  },
+  "Invalid command syntax; see /help and docs/COMMANDS.md": {
+    "en": "Invalid command syntax; see /help and docs/COMMANDS.md",
+    "ml": "കമാൻഡ് രൂപം തെറ്റാണ്; /help, docs/COMMANDS.md കാണുക"
+  },
+  "Authentication required": {
+    "en": "Authentication required",
+    "ml": "പ്രാമാണീകരണം വേണം"
+  },
+  "Session expired": {
+    "en": "Session expired",
+    "ml": "സെഷന്റെ കാലാവധി കഴിഞ്ഞു"
+  },
+  "Expired verification": {
+    "en": "Expired verification",
+    "ml": "പരിശോധന കാലഹരണപ്പെട്ടു"
+  },
+  "Complete the challenge": {
+    "en": "Complete the challenge",
+    "ml": "പരിശോധന പൂർത്തിയാക്കുക"
+  },
+  "Challenge validation failed": {
+    "en": "Challenge validation failed",
+    "ml": "പരിശോധന പരാജയപ്പെട്ടു"
+  },
+  "Incorrect answer": {
+    "en": "Incorrect answer",
+    "ml": "തെറ്റായ ഉത്തരം"
+  },
+  "Invalid or expired request": {
+    "en": "Invalid or expired request",
+    "ml": "അസാധുവായതോ കാലഹരണപ്പെട്ടതോ ആയ അഭ്യർഥന"
+  },
+  "Telegram/verification service unavailable": {
+    "en": "Telegram/verification service unavailable",
+    "ml": "Telegram/പരിശോധനാ സേവനം ലഭ്യമല്ല"
+  },
+  "Invalid body size": {
+    "en": "Invalid body size",
+    "ml": "അഭ്യർഥനയുടെ വലുപ്പം അസാധുവാണ്"
+  },
+  "Invalid request or failed challenge": {
+    "en": "Invalid request or failed challenge",
+    "ml": "അസാധുവായ അഭ്യർഥന അല്ലെങ്കിൽ പരാജയപ്പെട്ട പരിശോധന"
+  },
+  "Remote service unavailable; inspect state before retrying": {
+    "en": "Remote service unavailable; inspect state before retrying",
+    "ml": "പുറം സേവനം ലഭ്യമല്ല; വീണ്ടും ശ്രമിക്കുന്നതിന് മുമ്പ് സ്ഥിതി പരിശോധിക്കുക"
+  },
+  "Not found": {
+    "en": "Not found",
+    "ml": "കണ്ടെത്തിയില്ല"
+  },
+  "Request failed": {
+    "en": "Request failed",
+    "ml": "അഭ്യർഥന പരാജയപ്പെട്ടു"
+  },
+  "Super-admin broadcasts require an authorized operator in private chat": {
+    "en": "Super-admin broadcasts require an authorized operator in private chat",
+    "ml": "സൂപ്പർ അഡ്മിൻ അറിയിപ്പുകൾക്ക് സ്വകാര്യ ചാറ്റിൽ അംഗീകൃത ഓപ്പറേറ്റർ വേണം"
+  },
+  "Use /announce users|groups|all TEXT, or reply to content": {
+    "en": "Use /announce users|groups|all TEXT, or reply to content",
+    "ml": "/announce users|groups|all TEXT ഉപയോഗിക്കുക അല്ലെങ്കിൽ ഉള്ളടക്കത്തിന് മറുപടി നൽകുക"
+  },
+  "Supply text or reply to a media message": {
+    "en": "Supply text or reply to a media message",
+    "ml": "വാചകം നൽകുക അല്ലെങ്കിൽ മീഡിയ സന്ദേശത്തിന് മറുപടി നൽകുക"
+  },
+  "Supply a campaign ID": {
+    "en": "Supply a campaign ID",
+    "ml": "ക്യാമ്പെയ്ൻ ID നൽകുക"
+  },
+  "Unknown campaign or it belongs to a different operator": {
+    "en": "Unknown campaign or it belongs to a different operator",
+    "ml": "അറിയാത്ത ക്യാമ്പെയ്ൻ അല്ലെങ്കിൽ മറ്റൊരു ഓപ്പറേറ്ററുടേത്"
+  },
+  "Confirm using /announce_send ID CONFIRM": {
+    "en": "Confirm using /announce_send ID CONFIRM",
+    "ml": "/announce_send ID CONFIRM ഉപയോഗിച്ച് സ്ഥിരീകരിക്കുക"
+  },
+  "This preview has expired or has already been queued/cancelled": {
+    "en": "This preview has expired or has already been queued/cancelled",
+    "ml": "ഈ പ്രിവ്യൂ കാലഹരണപ്പെട്ടു അല്ലെങ്കിൽ ക്യൂവിൽ ചേർത്തു/റദ്ദാക്കി"
+  },
+  "Pending deliveries cancelled. Already sent messages are not recalled.": {
+    "en": "Pending deliveries cancelled. Already sent messages are not recalled.",
+    "ml": "കാത്തിരിക്കുന്ന അയക്കലുകൾ റദ്ദാക്കി. അയച്ച സന്ദേശങ്ങൾ പിൻവലിക്കില്ല."
+  },
+  "Unknown super-admin command": {
+    "en": "Unknown super-admin command",
+    "ml": "അറിയാത്ത സൂപ്പർ അഡ്മിൻ കമാൻഡ്"
+  },
+  "Saved / സേവ് ചെയ്തു": {
+    "en": "Saved",
+    "ml": "സേവ് ചെയ്തു"
+  },
+  "Sent to support / സപ്പോർട്ടിലേക്ക് അയച്ചു": {
+    "en": "Sent to support",
+    "ml": "സപ്പോർട്ടിലേക്ക് അയച്ചു"
+  },
+  "Verified / പരിശോധിച്ചു": {
+    "en": "Verified",
+    "ml": "പരിശോധിച്ചു"
+  },
+  "Verified": {
+    "en": "Verified",
+    "ml": "പരിശോധിച്ചു"
+  },
+  "Try again / വീണ്ടും ശ്രമിക്കുക": {
+    "en": "Try again",
+    "ml": "വീണ്ടും ശ്രമിക്കുക"
+  },
+  "I am here / ഞാൻ ഇവിടെ ഉണ്ട്": {
+    "en": "I am here",
+    "ml": "ഞാൻ ഇവിടെ ഉണ്ട്"
+  },
+  "Tap to verify / പരിശോധിക്കുക": {
+    "en": "Tap to verify",
+    "ml": "പരിശോധിക്കാൻ അമർത്തുക"
+  },
+  "Verify privately / പരിശോധിക്കുക": {
+    "en": "Verify privately",
+    "ml": "സ്വകാര്യമായി പരിശോധിക്കുക"
+  },
+  "Type the characters shown. / അക്ഷരങ്ങൾ നൽകുക.": {
+    "en": "Type the characters shown.",
+    "ml": "കാണുന്ന അക്ഷരങ്ങൾ നൽകുക."
+  },
+  "Broadcast preference saved / അറിയിപ്പ് മുൻഗണന സേവ് ചെയ്തു": {
+    "en": "Broadcast preference saved",
+    "ml": "അറിയിപ്പ് മുൻഗണന സേവ് ചെയ്തു"
+  },
+  "Open your private verification link. Do not share it.": {
+    "en": "Open your private verification link. Do not share it.",
+    "ml": "നിങ്ങളുടെ സ്വകാര്യ പരിശോധനാ ലിങ്ക് തുറക്കുക. പങ്കിടരുത്."
+  },
+  "No activity yet.": {
+    "en": "No activity yet.",
+    "ml": "ഇതുവരെ പ്രവർത്തനമില്ല."
+  },
+  "Group rules": {
+    "en": "Group rules",
+    "ml": "ഗ്രൂപ്പ് നിയമങ്ങൾ"
+  },
+  "Group setup": {
+    "en": "Group setup",
+    "ml": "ഗ്രൂപ്പ് സജ്ജീകരണം"
+  },
+  "Community activity": {
+    "en": "Community activity",
+    "ml": "കമ്മ്യൂണിറ്റി പ്രവർത്തനം"
+  },
+  "Contact support": {
+    "en": "Contact support",
+    "ml": "സപ്പോർട്ടിനെ ബന്ധപ്പെടുക"
+  },
+  "Select publishing destination": {
+    "en": "Select publishing destination",
+    "ml": "പ്രസിദ്ധീകരണ ലക്ഷ്യസ്ഥാനം തിരഞ്ഞെടുക്കുക"
+  },
+  "welcome": {
+    "en": "Welcome message",
+    "ml": "സ്വാഗതം"
+  },
+  "goodbye": {
+    "en": "Goodbye message",
+    "ml": "യാത്രയയപ്പ്"
+  },
+  "rules": {
+    "en": "Rules",
+    "ml": "നിയമങ്ങൾ"
+  },
+  "captcha": {
+    "en": "Verification mode",
+    "ml": "CAPTCHA"
+  },
+  "strict": {
+    "en": "Strict verification",
+    "ml": "കർശന പരിശോധന"
+  },
+  "language": {
+    "en": "Language",
+    "ml": "ഭാഷ"
+  },
+  "warn_action": {
+    "en": "Warning action",
+    "ml": "മുന്നറിയിപ്പ് നടപടി"
+  },
+  "warn_limit": {
+    "en": "Warning limit",
+    "ml": "മുന്നറിയിപ്പ് പരിധി"
+  },
+  "locks": {
+    "en": "Content locks",
+    "ml": "വിലക്കുകൾ"
+  },
+  "timezone": {
+    "en": "Timezone",
+    "ml": "സമയമേഖല"
+  },
+  "cleanup_service": {
+    "en": "Remove service messages",
+    "ml": "സേവന സന്ദേശങ്ങൾ നീക്കൽ"
+  },
+  "greeting_ttl": {
+    "en": "Greeting lifetime",
+    "ml": "സ്വാഗതത്തിന്റെ കാലാവധി"
+  },
+  "help": {
+    "en": "Help",
+    "ml": "സഹായം"
+  },
+  "warn_ttl": {
+    "en": "Warning lifetime",
+    "ml": "മുന്നറിയിപ്പിന്റെ കാലാവധി"
+  },
+  "action_seconds": {
+    "en": "Action duration (seconds)",
+    "ml": "നടപടി സെക്കൻഡുകൾ"
+  },
+  "flood_count": {
+    "en": "Message flood limit",
+    "ml": "ഫ്ലഡ് എണ്ണം"
+  },
+  "flood_window": {
+    "en": "Flood window (seconds)",
+    "ml": "ഫ്ലഡ് സമയപരിധി"
+  },
+  "repeat_count": {
+    "en": "Repeated message limit",
+    "ml": "ആവർത്തന എണ്ണം"
+  },
+  "captcha_seconds": {
+    "en": "Verification time limit",
+    "ml": "പരിശോധന സെക്കൻഡുകൾ"
+  },
+  "captcha_text": {
+    "en": "Verification message",
+    "ml": "പരിശോധന വാചകം"
+  },
+  "new_user_seconds": {
+    "en": "New member period",
+    "ml": "പുതിയ അംഗത്തിന്റെ സമയപരിധി"
+  },
+  "new_user_locks": {
+    "en": "New member content locks",
+    "ml": "പുതിയ അംഗത്തിനുള്ള വിലക്കുകൾ"
+  },
+  "log_chat": {
+    "en": "Log destination",
+    "ml": "ലോഗ് ചാറ്റ്"
+  },
+  "xp": {
+    "en": "Activity points",
+    "ml": "പ്രവർത്തന പോയിന്റുകൾ"
+  },
+  "cas": {
+    "en": "CAS reputation lookup",
+    "ml": "CAS പരിശോധന"
+  },
+  "True": {
+    "en": "True",
+    "ml": "അതെ"
+  },
+  "False": {
+    "en": "False",
+    "ml": "അല്ല"
+  },
+  "true": {
+    "en": "Enabled",
+    "ml": "അതെ"
+  },
+  "false": {
+    "en": "Disabled",
+    "ml": "അല്ല"
+  },
+  "off": {
+    "en": "off",
+    "ml": "ഓഫ്"
+  },
+  "button": {
+    "en": "button",
+    "ml": "ബട്ടൺ"
+  },
+  "response": {
+    "en": "response",
+    "ml": "മറുപടി"
+  },
+  "math": {
+    "en": "math",
+    "ml": "ഗണിതം"
+  },
+  "image": {
+    "en": "image",
+    "ml": "ചിത്രം"
+  },
+  "private": {
+    "en": "private",
+    "ml": "സ്വകാര്യ"
+  },
+  "web": {
+    "en": "web",
+    "ml": "വെബ്"
+  },
+  "turnstile": {
+    "en": "turnstile",
+    "ml": "Turnstile"
+  },
+  "mute": {
+    "en": "mute",
+    "ml": "നിശ്ശബ്ദമാക്കുക"
+  },
+  "ban": {
+    "en": "ban",
+    "ml": "വിലക്കുക"
+  },
+  "kick": {
+    "en": "kick",
+    "ml": "നീക്കം ചെയ്യുക"
+  },
+  "en": {
+    "en": "English",
+    "ml": "English"
+  },
+  "ml": {
+    "en": "മലയാളം",
+    "ml": "മലയാളം"
+  },
+  "Sign out": {
+    "en": "Sign out",
+    "ml": "പുറത്തുകടക്കുക"
+  },
+  "Open your private /dashboard CHAT_ID link first. Current administrator rights are checked on every request.": {
+    "en": "Open your private /dashboard CHAT_ID link first. Current administrator rights are checked on every request.",
+    "ml": "ആദ്യം സ്വകാര്യ /dashboard CHAT_ID ലിങ്ക് തുറക്കുക. ഓരോ അഭ്യർഥനയിലും നിലവിലെ അഡ്മിൻ അനുമതി പരിശോധിക്കും."
+  },
+  "Group": {
+    "en": "Group",
+    "ml": "ഗ്രൂപ്പ്"
+  },
+  "Refresh": {
+    "en": "Refresh",
+    "ml": "പുതുക്കുക"
+  },
+  "Activity dashboard": {
+    "en": "Activity dashboard",
+    "ml": "പ്രവർത്തന ഡാഷ്ബോർഡ്"
+  },
+  "Each group has its own settings and data. Templates contain policy only.": {
+    "en": "Each group has its own settings and data. Templates contain policy only.",
+    "ml": "ഓരോ ഗ്രൂപ്പിനും സ്വന്തം ക്രമീകരണങ്ങളും വിവരങ്ങളുമുണ്ട്. മാതൃകകളിൽ നയങ്ങൾ മാത്രമാണുള്ളത്."
+  },
+  "Guided settings": {
+    "en": "Guided settings",
+    "ml": "സഹായത്തോടെയുള്ള ക്രമീകരണങ്ങൾ"
+  },
+  "Setting": {
+    "en": "Setting",
+    "ml": "ക്രമീകരണം"
+  },
+  "Setting value": {
+    "en": "Setting value",
+    "ml": "ക്രമീകരണ മൂല്യം"
+  },
+  "Preview change": {
+    "en": "Preview change",
+    "ml": "മാറ്റം പരിശോധിക്കുക"
+  },
+  "Template name": {
+    "en": "Template name",
+    "ml": "മാതൃകയുടെ പേര്"
+  },
+  "Save template": {
+    "en": "Save template",
+    "ml": "മാതൃക സേവ് ചെയ്യുക"
+  },
+  "Apply template": {
+    "en": "Apply template",
+    "ml": "മാതൃക പ്രയോഗിക്കുക"
+  },
+  "Raid protection": {
+    "en": "Raid protection",
+    "ml": "കൂട്ട ആക്രമണ സംരക്ഷണം"
+  },
+  "Detection enabled": {
+    "en": "Detection enabled",
+    "ml": "കണ്ടെത്തൽ പ്രവർത്തിക്കുന്നു"
+  },
+  "Join threshold": {
+    "en": "Join threshold",
+    "ml": "ചേരുന്നവരുടെ പരിധി"
+  },
+  "Distinct spammers": {
+    "en": "Distinct spammers",
+    "ml": "വ്യത്യസ്ത സ്പാമർമാർ"
+  },
+  "Window seconds": {
+    "en": "Window seconds",
+    "ml": "നിരീക്ഷണ സെക്കൻഡുകൾ"
+  },
+  "Lockdown seconds": {
+    "en": "Lockdown seconds",
+    "ml": "നിയന്ത്രണ സെക്കൻഡുകൾ"
+  },
+  "Save detection": {
+    "en": "Save detection",
+    "ml": "കണ്ടെത്തൽ സേവ് ചെയ്യുക"
+  },
+  "Start lockdown": {
+    "en": "Start lockdown",
+    "ml": "നിയന്ത്രണം തുടങ്ങുക"
+  },
+  "Month": {
+    "en": "Month",
+    "ml": "മാസം"
+  },
+  "Click a post to move or cancel it. Times use the selected group’s timezone.": {
+    "en": "Click a post to move or cancel it. Times use the selected group’s timezone.",
+    "ml": "സമയം മാറ്റാനോ റദ്ദാക്കാനോ പോസ്റ്റിൽ അമർത്തുക. തിരഞ്ഞെടുത്ത ഗ്രൂപ്പിന്റെ സമയമേഖലയാണ് ഉപയോഗിക്കുക."
+  },
+  "Draft": {
+    "en": "Draft",
+    "ml": "ഡ്രാഫ്റ്റ്"
+  },
+  "Local time": {
+    "en": "Local time",
+    "ml": "പ്രാദേശിക സമയം"
+  },
+  "Weekdays (Monday = 0)": {
+    "en": "Weekdays (Monday = 0)",
+    "ml": "ആഴ്ചദിവസങ്ങൾ (തിങ്കൾ = 0)"
+  },
+  "Schedule recurrence": {
+    "en": "Schedule recurrence",
+    "ml": "ആവർത്തനം ഷെഡ്യൂൾ ചെയ്യുക"
+  },
+  "Daylight-saving gaps are skipped; repeated hours run once. Missed recurrences are not replayed in bulk.": {
+    "en": "Daylight-saving gaps are skipped; repeated hours run once. Missed recurrences are not replayed in bulk.",
+    "ml": "സമയമാറ്റത്തിൽ ഇല്ലാതാകുന്ന സമയം ഒഴിവാക്കും; ആവർത്തിക്കുന്ന മണിക്കൂറിൽ ഒരിക്കൽ മാത്രം പ്രവർത്തിക്കും. നഷ്ടപ്പെട്ട എല്ലാ ആവർത്തനങ്ങളും ഒരുമിച്ച് അയക്കില്ല."
+  },
+  "Event ID (empty creates new)": {
+    "en": "Event ID (empty creates new)",
+    "ml": "പരിപാടി ID (പുതിയതിന് ശൂന്യമാക്കുക)"
+  },
+  "Title": {
+    "en": "Title",
+    "ml": "ശീർഷകം"
+  },
+  "Date and time with UTC offset": {
+    "en": "Date and time with UTC offset",
+    "ml": "UTC വ്യത്യാസത്തോടെയുള്ള തീയതിയും സമയവും"
+  },
+  "Save event": {
+    "en": "Save event",
+    "ml": "പരിപാടി സേവ് ചെയ്യുക"
+  },
+  "Poll or quiz": {
+    "en": "Poll or quiz",
+    "ml": "വോട്ടെടുപ്പ് അല്ലെങ്കിൽ ക്വിസ്"
+  },
+  "Question": {
+    "en": "Question",
+    "ml": "ചോദ്യം"
+  },
+  "Answers (one per line)": {
+    "en": "Answers (one per line)",
+    "ml": "ഉത്തരങ്ങൾ (ഓരോ വരിയിലും ഒന്ന്)"
+  },
+  "Correct answer index (empty for poll)": {
+    "en": "Correct answer index (empty for poll)",
+    "ml": "ശരിയുത്തര സൂചിക (വോട്ടെടുപ്പിന് ശൂന്യം)"
+  },
+  "Publish poll": {
+    "en": "Publish poll",
+    "ml": "വോട്ടെടുപ്പ് പ്രസിദ്ധീകരിക്കുക"
+  },
+  "Topic overrides": {
+    "en": "Topic overrides",
+    "ml": "വിഷയത്തിലെ പ്രത്യേക ക്രമീകരണങ്ങൾ"
+  },
+  "Forum topic ID": {
+    "en": "Forum topic ID",
+    "ml": "ഫോറം വിഷയത്തിന്റെ ID"
+  },
+  "Save topic rules": {
+    "en": "Save topic rules",
+    "ml": "വിഷയ നിയമങ്ങൾ സേവ് ചെയ്യുക"
+  },
+  "Other settings inherit group values. Use /panel inside a topic for filters, replies and inheritance controls.": {
+    "en": "Other settings inherit group values. Use /panel inside a topic for filters, replies and inheritance controls.",
+    "ml": "മറ്റ് ക്രമീകരണങ്ങൾ ഗ്രൂപ്പിൽനിന്ന് സ്വീകരിക്കും. ഫിൽറ്ററുകൾക്കും മറുപടികൾക്കും വിഷയത്തിനുള്ളിൽ /panel ഉപയോഗിക്കുക."
+  },
+  "Activity retention days": {
+    "en": "Activity retention days",
+    "ml": "പ്രവർത്തനങ്ങൾ സൂക്ഷിക്കേണ്ട ദിവസങ്ങൾ"
+  },
+  "Save retention": {
+    "en": "Save retention",
+    "ml": "സൂക്ഷിക്കൽ കാലാവധി സേവ് ചെയ്യുക"
+  },
+  "Active safety records, Telegram copies and backups may remain. Members can use /privacy privately.": {
+    "en": "Active safety records, Telegram copies and backups may remain. Members can use /privacy privately.",
+    "ml": "സജീവ സുരക്ഷാ രേഖകളും Telegram പകർപ്പുകളും ബാക്കപ്പുകളും ശേഷിക്കാം. അംഗങ്ങൾക്ക് സ്വകാര്യമായി /privacy ഉപയോഗിക്കാം."
+  },
+  "Optional AI": {
+    "en": "Optional AI",
+    "ml": "ഐച്ഛിക AI"
+  },
+  "Enabled": {
+    "en": "Enabled",
+    "ml": "പ്രവർത്തനക്ഷമം"
+  },
+  "Capture observed messages": {
+    "en": "Capture observed messages",
+    "ml": "കാണുന്ന സന്ദേശങ്ങൾ രേഖപ്പെടുത്തുക"
+  },
+  "Allow configured external provider": {
+    "en": "Allow configured external provider",
+    "ml": "ക്രമീകരിച്ച പുറം സേവനം അനുവദിക്കുക"
+  },
+  "Save AI policy": {
+    "en": "Save AI policy",
+    "ml": "AI നയം സേവ് ചെയ്യുക"
+  },
+  "Operator opt-in and a configured model are required. External providers may charge fees. Capture and external processing changes post a group notice. AI cannot execute moderation actions.": {
+    "en": "Operator opt-in and a configured model are required. External providers may charge fees. Capture and external processing changes post a group notice. AI cannot execute moderation actions.",
+    "ml": "ഓപ്പറേറ്ററുടെ സമ്മതവും ക്രമീകരിച്ച മോഡലും വേണം. പുറം സേവനങ്ങൾക്ക് ഫീസ് ഉണ്ടാകാം. രേഖപ്പെടുത്തൽ, പുറം പ്രോസസ്സിംഗ് മാറ്റങ്ങൾ ഗ്രൂപ്പിൽ അറിയിക്കും. AIക്ക് മോഡറേഷൻ നടപടികൾ നടത്താനാവില്ല."
+  },
+  "Approved source name": {
+    "en": "Approved source name",
+    "ml": "അംഗീകരിച്ച സ്രോതസ്സിന്റെ പേര്"
+  },
+  "Approved FAQ text": {
+    "en": "Approved FAQ text",
+    "ml": "അംഗീകരിച്ച FAQ വാചകം"
+  },
+  "Save knowledge": {
+    "en": "Save knowledge",
+    "ml": "അറിവ് സേവ് ചെയ്യുക"
+  },
+  "Use /faq in the group. Summaries and advisory reviews are available in the Telegram administrator panel.": {
+    "en": "Use /faq in the group. Summaries and advisory reviews are available in the Telegram administrator panel.",
+    "ml": "ഗ്രൂപ്പിൽ /faq ഉപയോഗിക്കുക. സംഗ്രഹങ്ങളും അവലോകന നിർദേശങ്ങളും Telegram അഡ്മിൻ പാനലിൽ ലഭ്യമാണ്."
+  },
+  "Operator support inbox": {
+    "en": "Operator support inbox",
+    "ml": "ഓപ്പറേറ്ററുടെ സപ്പോർട്ട് ഇൻബോക്സ്"
+  },
+  "This inbox belongs to the bot operator. It is not shared among independent group owners.": {
+    "en": "This inbox belongs to the bot operator. It is not shared among independent group owners.",
+    "ml": "ഈ ഇൻബോക്സ് ബോട്ട് ഓപ്പറേറ്ററുടേതാണ്. സ്വതന്ത്ര ഗ്രൂപ്പ് ഉടമകൾ തമ്മിൽ ഇത് പങ്കിടുന്നില്ല."
+  },
+  "Review change": {
+    "en": "Review change",
+    "ml": "മാറ്റം പരിശോധിക്കുക"
+  },
+  "Scheduled post": {
+    "en": "Scheduled post",
+    "ml": "ഷെഡ്യൂൾ ചെയ്ത പോസ്റ്റ്"
+  },
+  "New date and time with UTC offset": {
+    "en": "New date and time with UTC offset",
+    "ml": "UTC വ്യത്യാസത്തോടെയുള്ള പുതിയ തീയതിയും സമയവും"
+  },
+  "Move post": {
+    "en": "Move post",
+    "ml": "പോസ്റ്റിന്റെ സമയം മാറ്റുക"
+  },
+  "Cancel post": {
+    "en": "Cancel post",
+    "ml": "പോസ്റ്റ് റദ്ദാക്കുക"
+  },
+  "Lockdown active": {
+    "en": "Lockdown active",
+    "ml": "നിയന്ത്രണം പ്രവർത്തിക്കുന്നു"
+  },
+  "No active lockdown": {
+    "en": "No active lockdown",
+    "ml": "സജീവ നിയന്ത്രണമില്ല"
+  },
+  "Updated": {
+    "en": "Updated",
+    "ml": "പുതുക്കി"
+  },
+  "Save internal note": {
+    "en": "Save internal note",
+    "ml": "സ്റ്റാഫ് കുറിപ്പ് സേവ് ചെയ്യുക"
+  },
+  "Community console": {
+    "en": "Community console",
+    "ml": "കമ്മ്യൂണിറ്റി പാനൽ"
+  },
+  "Your community, in view.": {
+    "en": "Your community, in view.",
+    "ml": "നിങ്ങളുടെ കമ്മ്യൂണിറ്റി ഒറ്റനോട്ടത്തിൽ."
+  },
+  "In a private conversation with Nexora, send": {
+    "en": "In a private conversation with Nexora, send",
+    "ml": "Nexoraയുടെ സ്വകാര്യ ചാറ്റിൽ അയക്കുക"
+  },
+  ". Open the personal link it returns. Links expire after one hour and require current Telegram administrator access.": {
+    "en": ". Open the personal link it returns. Links expire after one hour and require current Telegram administrator access.",
+    "ml": ". ലഭിക്കുന്ന സ്വകാര്യ ലിങ്ക് തുറക്കുക. ഒരു മണിക്കൂറിൽ കാലാവധി കഴിയും; നിലവിലെ Telegram അഡ്മിൻ അനുമതി വേണം."
+  },
+  "Community overview": {
+    "en": "Community overview",
+    "ml": "കമ്മ്യൂണിറ്റി അവലോകനം"
+  },
+  "A clearer view of your group.": {
+    "en": "A clearer view of your group.",
+    "ml": "നിങ്ങളുടെ ഗ്രൂപ്പിന്റെ വ്യക്തമായ ചിത്രം."
+  },
+  "Multi-group control panel": {
+    "en": "Multi-group control panel",
+    "ml": "ഒന്നിലധികം ഗ്രൂപ്പുകളുടെ പാനൽ"
+  },
+  "Messages observed": {
+    "en": "Messages observed",
+    "ml": "കണ്ട സന്ദേശങ്ങൾ"
+  },
+  "Active members": {
+    "en": "Active members",
+    "ml": "സജീവ അംഗങ്ങൾ"
+  },
+  "Members observed": {
+    "en": "Members observed",
+    "ml": "കണ്ട അംഗങ്ങൾ"
+  },
+  "Message activity · last 30 recorded days": {
+    "en": "Message activity · last 30 recorded days",
+    "ml": "സന്ദേശ പ്രവർത്തനം · അവസാനം രേഖപ്പെടുത്തിയ 30 ദിവസം"
+  },
+  "When your community is active": {
+    "en": "When your community is active",
+    "ml": "കമ്മ്യൂണിറ്റി സജീവമായ സമയം"
+  },
+  "Monday–Sunday · hours 00–23 · brighter means busier": {
+    "en": "Monday–Sunday · hours 00–23 · brighter means busier",
+    "ml": "തിങ്കൾ–ഞായർ · മണിക്കൂർ 00–23 · തെളിച്ചം കൂടുമ്പോൾ പ്രവർത്തനം കൂടുതൽ"
+  },
+  "Growth and engagement": {
+    "en": "Growth and engagement",
+    "ml": "വളർച്ചയും പങ്കാളിത്തവും"
+  },
+  "Moderation history": {
+    "en": "Moderation history",
+    "ml": "മോഡറേഷൻ ചരിത്രം"
+  },
+  "Group settings": {
+    "en": "Group settings",
+    "ml": "ഗ്രൂപ്പ് ക്രമീകരണങ്ങൾ"
+  },
+  "Save setting": {
+    "en": "Save setting",
+    "ml": "ക്രമീകരണം സേവ് ചെയ്യുക"
+  },
+  "Values use JSON:": {
+    "en": "Values use JSON:",
+    "ml": "മൂല്യങ്ങൾ JSON ഉപയോഗിക്കുന്നു:"
+  },
+  "or": {
+    "en": "or",
+    "ml": "അല്ലെങ്കിൽ"
+  },
+  "Scheduled jobs": {
+    "en": "Scheduled jobs",
+    "ml": "ഷെഡ്യൂൾ ചെയ്ത ജോലികൾ"
+  },
+  "Failed or uncertain jobs need inspection. They are not silently resent.": {
+    "en": "Failed or uncertain jobs need inspection. They are not silently resent.",
+    "ml": "പരാജയപ്പെട്ടതോ ഫലം വ്യക്തമല്ലാത്തതോ ആയ ജോലികൾ പരിശോധിക്കണം. അവ സ്വമേധയാ വീണ്ടും അയക്കില്ല."
+  },
+  "Member reports": {
+    "en": "Member reports",
+    "ml": "അംഗങ്ങളുടെ റിപ്പോർട്ടുകൾ"
+  },
+  "Member activity": {
+    "en": "Member activity",
+    "ml": "അംഗങ്ങളുടെ പ്രവർത്തനം"
+  },
+  "Only activity visible to this bot is counted. Historical Telegram activity is not imported. Member counts reflect observed users, not a complete roster. Data follows the configured retention window.": {
+    "en": "Only activity visible to this bot is counted. Historical Telegram activity is not imported. Member counts reflect observed users, not a complete roster. Data follows the configured retention window.",
+    "ml": "ബോട്ടിന് കാണാവുന്ന പ്രവർത്തനം മാത്രം എണ്ണുന്നു. പഴയ Telegram പ്രവർത്തനം എടുക്കുന്നില്ല. അംഗസംഖ്യ കണ്ട അംഗങ്ങളുടേതാണ്; പൂർണ പട്ടികയല്ല. വിവരങ്ങൾ ക്രമീകരിച്ച കാലാവധിവരെ സൂക്ഷിക്കും."
+  },
+  "Loading…": {
+    "en": "Loading…",
+    "ml": "ലോഡ് ചെയ്യുന്നു…"
+  },
+  "Date": {
+    "en": "Date",
+    "ml": "തീയതി"
+  },
+  "Messages": {
+    "en": "Messages",
+    "ml": "സന്ദേശങ്ങൾ"
+  },
+  "Joins": {
+    "en": "Joins",
+    "ml": "ചേരലുകൾ"
+  },
+  "Leaves": {
+    "en": "Leaves",
+    "ml": "പിന്മാറ്റങ്ങൾ"
+  },
+  "When": {
+    "en": "When",
+    "ml": "സമയം"
+  },
+  "User": {
+    "en": "User",
+    "ml": "അംഗം"
+  },
+  "Action": {
+    "en": "Action",
+    "ml": "നടപടി"
+  },
+  "Type": {
+    "en": "Type",
+    "ml": "തരം"
+  },
+  "State": {
+    "en": "State",
+    "ml": "സ്ഥിതി"
+  },
+  "Due": {
+    "en": "Due",
+    "ml": "സമയം"
+  },
+  "Member ID": {
+    "en": "Member ID",
+    "ml": "അംഗത്തിന്റെ ID"
+  },
+  "Target": {
+    "en": "Target",
+    "ml": "ലക്ഷ്യം"
+  },
+  "Reason": {
+    "en": "Reason",
+    "ml": "കാരണം"
+  },
+  "pending": {
+    "en": "pending",
+    "ml": "തീർപ്പാകാത്തത്"
+  },
+  "done": {
+    "en": "done",
+    "ml": "പൂർത്തിയായി"
+  },
+  "failed": {
+    "en": "failed",
+    "ml": "പരാജയപ്പെട്ടു"
+  },
+  "uncertain": {
+    "en": "uncertain",
+    "ml": "ഫലം വ്യക്തമല്ല"
+  },
+  "cancelled": {
+    "en": "cancelled",
+    "ml": "റദ്ദാക്കി"
+  },
+  "running": {
+    "en": "running",
+    "ml": "പ്രവർത്തിക്കുന്നു"
+  },
+  "active": {
+    "en": "active",
+    "ml": "സജീവം"
+  },
+  "open": {
+    "en": "open",
+    "ml": "തുറന്നത്"
+  },
+  "closed": {
+    "en": "closed",
+    "ml": "അടച്ചത്"
+  },
+  "approved": {
+    "en": "approved",
+    "ml": "അംഗീകരിച്ചു"
+  },
+  "rejected": {
+    "en": "rejected",
+    "ml": "നിരസിച്ചു"
+  },
+  "reviewing": {
+    "en": "reviewing",
+    "ml": "പരിശോധിക്കുന്നു"
+  },
+  "normal": {
+    "en": "normal",
+    "ml": "സാധാരണ"
+  },
+  "high": {
+    "en": "high",
+    "ml": "ഉയർന്ന"
+  },
+  "urgent": {
+    "en": "urgent",
+    "ml": "അടിയന്തരം"
+  },
+  "low": {
+    "en": "low",
+    "ml": "താഴ്ന്ന"
+  },
+  "No notes": {
+    "en": "No notes",
+    "ml": "കുറിപ്പുകളില്ല"
+  },
+  "Verify": {
+    "en": "Verify",
+    "ml": "പരിശോധിക്കുക"
+  },
+  "See docs/COMMANDS.md for syntax and examples.": {
+    "en": "See docs/COMMANDS.md for syntax and examples.",
+    "ml": "കമാൻഡ് രൂപത്തിനും ഉദാഹരണങ്ങൾക്കും docs/COMMANDS.md കാണുക."
+  },
+  "Welcome {first_name} to {chat_title}!": {
+    "en": "Welcome {first_name} to {chat_title}!",
+    "ml": "{chat_title}ലേക്ക് സ്വാഗതം, {first_name}!"
+  },
+  "Goodbye {first_name}.": {
+    "en": "Goodbye {first_name}.",
+    "ml": "വിട, {first_name}."
+  },
+  "Please be respectful. No spam.": {
+    "en": "Please be respectful. No spam.",
+    "ml": "പരസ്പരം ബഹുമാനിക്കുക. സ്പാം പാടില്ല."
+  },
+  "Verify to join {chat_title}.": {
+    "en": "Verify to join {chat_title}.",
+    "ml": "{chat_title}ൽ ചേരാൻ പരിശോധിക്കുക."
+  },
+  "/schedule NAME 2026-10-01T09:00:00+01:00 [every=1d] [silent]": {
+    "en": "/schedule NAME 2026-10-01T09:00:00+01:00 [every=1d] [silent]",
+    "ml": "ഉപയോഗം: /schedule NAME 2026-10-01T09:00:00+01:00 [every=1d] [silent]"
+  },
+  "Super-admin broadcast console\n/announce users|groups|all TEXT (or reply to media)\n/announce_send ID CONFIRM\n/announce_status ID\n/announce_cancel ID\nPrivate recipients must have contacted this bot and must not have opted out. Groups must be observed and Nexora must still be an administrator.": {
+    "en": "Super-admin broadcast console\n/announce users|groups|all TEXT (or reply to media)\n/announce_send ID CONFIRM\n/announce_status ID\n/announce_cancel ID\nPrivate recipients must have contacted this bot and must not have opted out. Groups must be observed and Nexora must still be an administrator.",
+    "ml": "സൂപ്പർ അഡ്മിൻ അറിയിപ്പ് പാനൽ\n/announce users|groups|all TEXT (അല്ലെങ്കിൽ മീഡിയക്ക് മറുപടി)\n/announce_send ID CONFIRM\n/announce_status ID\n/announce_cancel ID\nസ്വകാര്യ സ്വീകർത്താക്കൾ ബോട്ടുമായി ബന്ധപ്പെട്ടവരും പിന്മാറാത്തവരുമായിരിക്കണം. ഗ്രൂപ്പുകൾ ബോട്ടിന് അറിയാവുന്നതും ബോട്ട് അഡ്മിനായിരിക്കുന്നതുമാകണം."
+  },
+  "Uncertain deliveries are not automatically retried.": {
+    "en": "Uncertain deliveries are not automatically retried.",
+    "ml": "ഫലം വ്യക്തമല്ലാത്ത അയക്കലുകൾ സ്വമേധയാ വീണ്ടും ശ്രമിക്കില്ല."
+  },
+  "Manual administrator request": {
+    "en": "Manual administrator request",
+    "ml": "അഡ്മിന്റെ നേരിട്ടുള്ള അഭ്യർഥന"
+  },
+  "Observed coordinated messages": {
+    "en": "Observed coordinated messages",
+    "ml": "ഏകോപിത സന്ദേശങ്ങൾ കണ്ടെത്തി"
+  },
+  "Observed join burst": {
+    "en": "Observed join burst",
+    "ml": "ഒരുമിച്ചുള്ള ചേരലുകൾ കണ്ടെത്തി"
+  },
+  "Privacy controls": {
+    "en": "Privacy controls",
+    "ml": "സ്വകാര്യതാ നിയന്ത്രണങ്ങൾ"
+  },
+  "Choose a group": {
+    "en": "Choose a group",
+    "ml": "ഗ്രൂപ്പ് തിരഞ്ഞെടുക്കുക"
+  },
+  "Complete your private verification. Never share this link.": {
+    "en": "Complete your private verification. Never share this link.",
+    "ml": "സ്വകാര്യ പരിശോധന പൂർത്തിയാക്കുക. ഈ ലിങ്ക് പങ്കിടരുത്."
+  },
+  "You can return to Telegram.": {
+    "en": "You can return to Telegram.",
+    "ml": "നിങ്ങൾക്ക് Telegramലേക്ക് മടങ്ങാം."
+  },
+  "Verify / പരിശോധിക്കുക": {
+    "en": "Verify",
+    "ml": "പരിശോധിക്കുക"
+  },
+  "Community support": {
+    "en": "Community support",
+    "ml": "കമ്മ്യൂണിറ്റി സപ്പോർട്ട്"
+  },
+  "Use a separate, private staff group for this community": {
+    "en": "Use a separate, private staff group for this community",
+    "ml": "ഈ കമ്മ്യൂണിറ്റിക്ക് വേറൊരു സ്വകാര്യ സ്റ്റാഫ് ഗ്രൂപ്പ് ഉപയോഗിക്കുക"
+  },
+  "The support inbox must be a staff group": {
+    "en": "The support inbox must be a staff group",
+    "ml": "സപ്പോർട്ട് ഇൻബോക്സ് സ്റ്റാഫ് ഗ്രൂപ്പായിരിക്കണം"
+  },
+  "Add the bot to the staff inbox first": {
+    "en": "Add the bot to the staff inbox first",
+    "ml": "ആദ്യം ബോട്ടിനെ സ്റ്റാഫ് ഇൻബോക്സിൽ ചേർക്കുക"
+  },
+  "Every configured staff member must belong to the inbox": {
+    "en": "Every configured staff member must belong to the inbox",
+    "ml": "ക്രമീകരിച്ച എല്ലാ സ്റ്റാഫും ഇൻബോക്സിൽ അംഗങ്ങളായിരിക്കണം"
+  },
+  "Inbox must contain only the bot and configured staff": {
+    "en": "Inbox must contain only the bot and configured staff",
+    "ml": "ഇൻബോക്സിൽ ബോട്ടും ക്രമീകരിച്ച സ്റ്റാഫും മാത്രമേ ഉണ്ടാകാവൂ"
+  },
+  "That support inbox belongs to another community": {
+    "en": "That support inbox belongs to another community",
+    "ml": "ആ സപ്പോർട്ട് ഇൻബോക്സ് മറ്റൊരു കമ്മ്യൂണിറ്റിയുടേതാണ്"
+  },
+  "Include yourself and at most 30 authorized staff members": {
+    "en": "Include yourself and at most 30 authorized staff members",
+    "ml": "നിങ്ങളെയും പരമാവധി 30 അംഗീകൃത സ്റ്റാഫിനെയും ഉൾപ്പെടുത്തുക"
+  },
+  "Community support staff access required": {
+    "en": "Community support staff access required",
+    "ml": "ഈ കമ്മ്യൂണിറ്റിയുടെ സപ്പോർട്ട് സ്റ്റാഫ് അനുമതി വേണം"
+  },
+  "Community support is not configured": {
+    "en": "Community support is not configured",
+    "ml": "കമ്മ്യൂണിറ്റി സപ്പോർട്ട് ക്രമീകരിച്ചിട്ടില്ല"
+  },
+  "Your next messages go to this community’s staff. /close ends this conversation.": {
+    "en": "Your next messages go to this community’s staff. /close ends this conversation.",
+    "ml": "നിങ്ങളുടെ അടുത്ത സന്ദേശങ്ങൾ ഈ കമ്മ്യൂണിറ്റിയുടെ സ്റ്റാഫിന് അയക്കും. /close സംഭാഷണം അവസാനിപ്പിക്കും."
+  },
+  "Apply to several groups": {
+    "en": "Apply to several groups",
+    "ml": "പല ഗ്രൂപ്പുകളിലും പ്രയോഗിക്കുക"
+  },
+  "Configure private staff inbox": {
+    "en": "Configure private staff inbox",
+    "ml": "സ്വകാര്യ സ്റ്റാഫ് ഇൻബോക്സ് ക്രമീകരിക്കുക"
+  },
+  "Enter private INBOX_ID | comma-separated staff IDs. Only the bot and these staff may be in that inbox.": {
+    "en": "Enter private INBOX_ID | comma-separated staff IDs. Only the bot and these staff may be in that inbox.",
+    "ml": "സ്വകാര്യ INBOX_ID | കോമയിട്ട സ്റ്റാഫ് IDകൾ നൽകുക. ഇൻബോക്സിൽ ബോട്ടും ഈ സ്റ്റാഫും മാത്രം ഉണ്ടായിരിക്കണം."
+  },
+  "Enter TEMPLATE_NAME | comma-separated destination group IDs. Every destination requires current administrator rights.": {
+    "en": "Enter TEMPLATE_NAME | comma-separated destination group IDs. Every destination requires current administrator rights.",
+    "ml": "TEMPLATE_NAME | കോമയിട്ട ലക്ഷ്യഗ്രൂപ്പ് IDകൾ നൽകുക. ഓരോ ഗ്രൂപ്പിലും നിലവിലെ അഡ്മിൻ അനുമതി വേണം."
+  },
+  "Apply this policy to the selected groups?": {
+    "en": "Apply this policy to the selected groups?",
+    "ml": "തിരഞ്ഞെടുത്ത ഗ്രൂപ്പുകളിൽ ഈ നയം പ്രയോഗിക്കണോ?"
+  },
+  "Choose 1–20 destination groups": {
+    "en": "Choose 1–20 destination groups",
+    "ml": "1–20 ലക്ഷ്യഗ്രൂപ്പുകൾ തിരഞ്ഞെടുക്കുക"
+  },
+  "Use community support in a private chat": {
+    "en": "Use community support in a private chat",
+    "ml": "സ്വകാര്യ ചാറ്റിൽ കമ്മ്യൂണിറ്റി സപ്പോർട്ട് ഉപയോഗിക്കുക"
+  },
+  "Only this community’s authorized support staff can access these tickets.": {
+    "en": "Only this community’s authorized support staff can access these tickets.",
+    "ml": "ഈ കമ്മ്യൂണിറ്റിയുടെ അംഗീകൃത സപ്പോർട്ട് സ്റ്റാഫിന് മാത്രമേ ഈ ടിക്കറ്റുകൾ കാണാനാകൂ."
+  },
+  "Billing is not enabled or fully configured": {
+    "en": "Billing is not enabled or fully configured",
+    "ml": "ബില്ലിംഗ് പ്രവർത്തനക്ഷമമാക്കിയിട്ടില്ല അല്ലെങ്കിൽ പൂർണമായി ക്രമീകരിച്ചിട്ടില്ല"
+  },
+  "This group already has an active subscription": {
+    "en": "This group already has an active subscription",
+    "ml": "ഈ ഗ്രൂപ്പിന് ഇതിനകം സജീവ സബ്സ്ക്രിപ്ഷൻ ഉണ്ട്"
+  },
+  "Payment does not match the approved order": {
+    "en": "Payment does not match the approved order",
+    "ml": "പണമടവ് അംഗീകരിച്ച ഓർഡറുമായി പൊരുത്തപ്പെടുന്നില്ല"
+  },
+  "Payment is unavailable. Contact /paysupport.": {
+    "en": "Payment is unavailable. Contact /paysupport.",
+    "ml": "പണമടവ് ലഭ്യമല്ല. /paysupport ബന്ധപ്പെടുക."
+  },
+  "Private payment receipt required": {
+    "en": "Private payment receipt required",
+    "ml": "സ്വകാര്യ പണമടവ് രസീത് വേണം"
+  },
+  "Conflicting payment receipt": {
+    "en": "Conflicting payment receipt",
+    "ml": "പണമടവ് രസീതുകൾ തമ്മിൽ പൊരുത്തക്കേടുണ്ട്"
+  },
+  "Invalid subscription receipt": {
+    "en": "Invalid subscription receipt",
+    "ml": "അസാധുവായ സബ്സ്ക്രിപ്ഷൻ രസീത്"
+  },
+  "Initial subscription receipt required": {
+    "en": "Initial subscription receipt required",
+    "ml": "ആദ്യ സബ്സ്ക്രിപ്ഷൻ രസീത് വേണം"
+  },
+  "Duplicate initial subscription": {
+    "en": "Duplicate initial subscription",
+    "ml": "ആദ്യ സബ്സ്ക്രിപ്ഷൻ ആവർത്തിച്ചു"
+  },
+  "This subscription belongs to another payer": {
+    "en": "This subscription belongs to another payer",
+    "ml": "ഈ സബ്സ്ക്രിപ്ഷൻ മറ്റൊരു പണമടച്ച വ്യക്തിയുടേതാണ്"
+  },
+  "Unknown payment": {
+    "en": "Unknown payment",
+    "ml": "അറിയാത്ത പണമടവ്"
+  },
+  "Refund needs reconciliation before another attempt": {
+    "en": "Refund needs reconciliation before another attempt",
+    "ml": "വീണ്ടും ശ്രമിക്കുന്നതിന് മുമ്പ് റീഫണ്ട് രേഖകൾ ഒത്തുനോക്കണം"
+  },
+  "Reconcile payment records after restore before enabling billing": {
+    "en": "Reconcile payment records after restore before enabling billing",
+    "ml": "പുനഃസ്ഥാപിച്ചതിന് ശേഷം ബില്ലിംഗ് തുടങ്ങുന്നതിന് മുമ്പ് പണമടവ് രേഖകൾ ഒത്തുനോക്കുക"
+  },
+  "Open the plan menu in a private chat": {
+    "en": "Open the plan menu in a private chat",
+    "ml": "സ്വകാര്യ ചാറ്റിൽ പ്ലാൻ മെനു തുറക്കുക"
+  },
+  "Agree to the terms and create a subscription invoice?": {
+    "en": "Agree to the terms and create a subscription invoice?",
+    "ml": "നിബന്ധനകൾ അംഗീകരിച്ച് സബ്സ്ക്രിപ്ഷൻ ഇൻവോയ്സ് സൃഷ്ടിക്കണോ?"
+  },
+  "Cancel renewal": {
+    "en": "Cancel renewal",
+    "ml": "പുതുക്കൽ റദ്ദാക്കുക"
+  },
+  "Refund this payment?": {
+    "en": "Refund this payment?",
+    "ml": "ഈ പണമടവ് തിരികെ നൽകണോ?"
+  },
+  "Similarity threshold": {
+    "en": "Similarity threshold",
+    "ml": "പേര് സാമ്യത്തിന്റെ പരിധി"
+  },
+  "Enter a name similarity threshold from 0.75 to 1.0.": {
+    "en": "Enter a name similarity threshold from 0.75 to 1.0.",
+    "ml": "പേര് സാമ്യത്തിന്റെ പരിധി 0.75 മുതൽ 1.0 വരെ നൽകുക."
+  },
+  "Enable this tested filter?": {
+    "en": "Enable this tested filter?",
+    "ml": "പരിശോധിച്ച ഈ ഫിൽറ്റർ പ്രവർത്തനക്ഷമമാക്കണോ?"
+  },
+  "Add Nexora to your group, then open /panel.": {
+    "en": "Add Nexora to your group, then open /panel.",
+    "ml": "Nexoraയെ ഗ്രൂപ്പിൽ ചേർത്തശേഷം /panel തുറക്കുക."
+  },
+  "Add to group": {
+    "en": "Add to group",
+    "ml": "ഗ്രൂപ്പിൽ ചേർക്കുക"
+  },
+  "Telegram media albums do not support attached inline keyboards": {
+    "en": "Telegram media albums do not support attached inline keyboards",
+    "ml": "Telegram മീഡിയ ആൽബങ്ങളിൽ ഇൻലൈൻ ബട്ടണുകൾ ചേർക്കാനാവില്ല"
+  },
+  "Type the code": {
+    "en": "Type the code",
+    "ml": "കോഡ് നൽകുക"
+  },
+  "Pro subscription active for this group.": {
+    "en": "Pro subscription active for this group.",
+    "ml": "ഈ ഗ്രൂപ്പിൽ Pro സബ്സ്ക്രിപ്ഷൻ സജീവമാണ്."
+  },
+  "All features are currently available. Paid limits are not active.": {
+    "en": "All features are currently available. Paid limits are not active.",
+    "ml": "നിലവിൽ എല്ലാ സവിശേഷതകളും ലഭ്യമാണ്. പണമടച്ച പരിധികൾ സജീവമല്ല."
+  },
+  "Upgrades are disabled until the operator confirms pricing and terms.": {
+    "en": "Upgrades are disabled until the operator confirms pricing and terms.",
+    "ml": "വിലയും നിബന്ധനകളും ഓപ്പറേറ്റർ സ്ഥിരീകരിക്കുന്നതുവരെ അപ്ഗ്രേഡുകൾ പ്രവർത്തിക്കില്ല."
+  },
+  "Group subscription": {
+    "en": "Group subscription",
+    "ml": "ഗ്രൂപ്പ് സബ്സ്ക്രിപ്ഷൻ"
+  },
+  "Review upgrade": {
+    "en": "Review upgrade",
+    "ml": "അപ്ഗ്രേഡ് പരിശോധിക്കുക"
+  },
+  "Mon": {
+    "en": "Mon",
+    "ml": "തിങ്കൾ"
+  },
+  "Tue": {
+    "en": "Tue",
+    "ml": "ചൊവ്വ"
+  },
+  "Wed": {
+    "en": "Wed",
+    "ml": "ബുധൻ"
+  },
+  "Thu": {
+    "en": "Thu",
+    "ml": "വ്യാഴം"
+  },
+  "Fri": {
+    "en": "Fri",
+    "ml": "വെള്ളി"
+  },
+  "Sat": {
+    "en": "Sat",
+    "ml": "ശനി"
+  },
+  "Sun": {
+    "en": "Sun",
+    "ml": "ഞായർ"
+  },
+  "Nexora verification": {
+    "en": "Nexora verification",
+    "ml": "നെക്സോറ സ്ഥിരീകരണം"
+  },
+  "completed": {
+    "en": "completed",
+    "ml": "പൂർത്തിയായി"
+  },
+  "action": {
+    "en": "Action",
+    "ml": "നടപടി"
+  },
+  "key": {
+    "en": "Setting",
+    "ml": "ക്രമീകരണം"
+  },
+  "value": {
+    "en": "New value",
+    "ml": "പുതിയ മൂല്യം"
+  },
+  "setting": {
+    "en": "Change setting",
+    "ml": "ക്രമീകരണം മാറ്റുക"
+  },
+  "job_cancel": {
+    "en": "Cancel post",
+    "ml": "പോസ്റ്റ് റദ്ദാക്കുക"
+  },
+  "job_move": {
+    "en": "Move post",
+    "ml": "പോസ്റ്റ് മാറ്റുക"
+  },
+  "job": {
+    "en": "Post",
+    "ml": "പോസ്റ്റ്"
+  },
+  "date": {
+    "en": "Date",
+    "ml": "തീയതി"
+  },
+  "policy": {
+    "en": "Policy",
+    "ml": "നയം"
+  },
+  "id": {
+    "en": "Identifier",
+    "ml": "തിരിച്ചറിയൽ"
+  },
+  "event": {
+    "en": "Save event",
+    "ml": "പരിപാടി സേവ് ചെയ്യുക"
+  },
+  "event_cancel": {
+    "en": "Cancel event",
+    "ml": "പരിപാടി റദ്ദാക്കുക"
+  },
+  "title": {
+    "en": "Title",
+    "ml": "ശീർഷകം"
+  },
+  "enabled": {
+    "en": "Enabled",
+    "ml": "പ്രവർത്തനക്ഷമം"
+  },
+  "joins": {
+    "en": "Join threshold",
+    "ml": "ചേരുന്നവരുടെ പരിധി"
+  },
+  "spam": {
+    "en": "Distinct spammers",
+    "ml": "വ്യത്യസ്ത സ്പാമർമാർ"
+  },
+  "window": {
+    "en": "Window seconds",
+    "ml": "നിരീക്ഷണ സെക്കൻഡുകൾ"
+  },
+  "seconds": {
+    "en": "Duration in seconds",
+    "ml": "സെക്കൻഡിലെ ദൈർഘ്യം"
+  },
+  "dry_run": {
+    "en": "Test only",
+    "ml": "പരിശോധന മാത്രം"
+  },
+  "exempt": {
+    "en": "Exempt from punishment",
+    "ml": "ശിക്ഷയിൽനിന്ന് ഒഴിവ്"
+  },
+  "topic": {
+    "en": "Topic",
+    "ml": "വിഷയം"
+  },
+  "limits": {
+    "en": "Limits",
+    "ml": "പരിമിതികൾ"
+  },
+  "new_member_locks": {
+    "en": "New member locks",
+    "ml": "പുതിയ അംഗത്തിനുള്ള വിലക്കുകൾ"
+  },
+  "lock_actions": {
+    "en": "Lock actions",
+    "ml": "വിലക്ക് നടപടികൾ"
+  },
+  "raid_lockdown": {
+    "en": "Raid lockdown",
+    "ml": "കൂട്ട ആക്രമണ നിയന്ത്രണം"
+  },
+  "captcha_block": {
+    "en": "Verification block",
+    "ml": "പരിശോധന നിയന്ത്രണം"
+  },
+  "name": {
+    "en": "Name",
+    "ml": "പേര്"
+  },
+  "match": {
+    "en": "Match type",
+    "ml": "പൊരുത്തത്തിന്റെ തരം"
+  },
+  "configured_actions": {
+    "en": "Configured actions",
+    "ml": "ക്രമീകരിച്ച നടപടികൾ"
+  },
+  "actions": {
+    "en": "Actions",
+    "ml": "നടപടികൾ"
+  },
+  "status": {
+    "en": "Status",
+    "ml": "സ്ഥിതി"
+  },
+  "can_delete_messages": {
+    "en": "Delete messages",
+    "ml": "സന്ദേശങ്ങൾ നീക്കൽ"
+  },
+  "can_restrict_members": {
+    "en": "Restrict members",
+    "ml": "അംഗ നിയന്ത്രണം"
+  },
+  "can_invite_users": {
+    "en": "Invite members",
+    "ml": "അംഗങ്ങളെ ക്ഷണിക്കൽ"
+  },
+  "can_pin_messages": {
+    "en": "Pin messages",
+    "ml": "സന്ദേശങ്ങൾ പിൻ ചെയ്യൽ"
+  },
+  "can_post_messages": {
+    "en": "Publish posts",
+    "ml": "പോസ്റ്റ് പ്രസിദ്ധീകരണം"
+  },
+  "can_manage_topics": {
+    "en": "Manage topics",
+    "ml": "വിഷയങ്ങൾ കൈകാര്യം ചെയ്യൽ"
+  }
+}
