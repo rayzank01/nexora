@@ -17,7 +17,7 @@ class Billing:
 
     def settings(self):
         if self.db.get('billing','recovery','blocked',False):raise ValueError('Reconcile payment records after restore before enabling billing')
-        price=int(os.getenv('NEXORA_PRO_STARS','0'))
+        price=int(os.getenv('NEXORA_PRO_STARS','154'))
         terms=os.getenv('NEXORA_BILLING_TERMS','')
         enabled=os.getenv('NEXORA_BILLING_ENABLED')=='1'
         if not enabled or not 1<=price<=10000 or not terms or not self.e.config.support_chat or not self.e.config.support_admins:
@@ -39,7 +39,7 @@ class Billing:
     def package_settings(self,product):
         self.settings()
         if product not in ('pro','ultra'):raise ValueError('Choose Pro or Ultra')
-        price=int(os.getenv('NEXORA_PRO_STARS' if product=='pro' else 'NEXORA_ULTRA_STARS','0'))
+        price=int(os.getenv('NEXORA_PRO_STARS' if product=='pro' else 'NEXORA_ULTRA_STARS','154'))
         if not 1<=price<=10000:raise ValueError('Package Stars price is not configured')
         return price,os.environ['NEXORA_BILLING_TERMS']
 

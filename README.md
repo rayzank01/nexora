@@ -15,7 +15,7 @@ username depends on Telegram availability.
 
 See [packages, refunds and owner advertising](docs/PACKAGES.md) for the new Pro bundle,
 Ultra subscription, group list and free-group campaigns. Checkout remains disabled
-until exact Stars amounts and private host settings are provided.
+until private host settings and terms are ready. Both packages are priced at 154 Stars.
 
 ## Start on Windows
 

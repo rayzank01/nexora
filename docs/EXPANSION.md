@@ -140,7 +140,7 @@ required: these boundaries do not guarantee factual accuracy or eliminate prompt
 
 **Superseded by [Packages](PACKAGES.md):** Pro now covers six group slots for three
 calendar months; Ultra covers one group for 30 days; cancellation has a seven-day
-refund window. Actual Stars amounts and live activation remain pending.
+refund window. Both packages now cost 154 Stars. Live activation remains pending.
 
 
 All features remain available: no live price, quota or paywall has been chosen.

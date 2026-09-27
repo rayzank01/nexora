@@ -5,14 +5,14 @@ The implementation is tested locally; no live payments or advertising have been 
 
 ## Packages
 
-Dollar amounts are approximate product targets. Both purchases use Telegram Stars only.
-The owner must select the fixed Stars amounts before enabling checkout.
+Both purchases cost **154 Telegram Stars**, as approved by the owner. Dollar amounts
+are approximate references; checkout uses Stars only.
 
 | Package | Price target | Coverage | Term | Active recurring messages per group |
 |---|---|---|---|---|
 | Free | Free | Each group | Ongoing | 1 |
-| Pro | About $3 total | Six group slots | Three calendar months, one-time purchase | 10 |
-| Ultra | About $3 | One group | 30 days, automatically renewing | 50 |
+| Pro | 154 Stars total | Six group slots | Three calendar months, one-time purchase | 10 |
+| Ultra | 154 Stars | One group | 30 days, automatically renewing | 50 |
 
 Pro expires three calendar months after the payment date in UTC; month-end dates clamp
 to the last day of the target month. Telegram's recurring invoice is used only for Ultra.
@@ -105,17 +105,17 @@ The existing general `/announce` service-announcement controls remain separate.
 
 ## Activation
 
-Set privately on the host after choosing the actual Stars amounts:
+Set privately on the host:
 
-- `NEXORA_PRO_STARS`: owner-selected integer amount for the complete three-month bundle.
-- `NEXORA_ULTRA_STARS`: owner-selected integer amount for one 30-day subscription.
+- `NEXORA_PRO_STARS=154`: complete three-month, six-group bundle.
+- `NEXORA_ULTRA_STARS=154`: one group for each 30-day subscription period.
 - `NEXORA_BILLING_TERMS`: the published product/refund terms.
 - `SUPPORT_CHAT_ID` and `SUPPORT_ADMIN_IDS`: staffed payment-support destination.
 - `NEXORA_BILLING_ENABLED=1`: enable configured checkout.
 - `NEXORA_PLAN_LIMITS=1`: enforce plan capabilities and quotas.
 
-Defaults remain disabled/zero while Stars prices and private host configuration are
-missing. Do not enable a paywall without an available configured checkout. No live
+Prices default to 154 Stars. Billing and plan limits remain disabled until private
+host configuration and published terms are ready. Do not enable a paywall without an available configured checkout. No live
 purchase, refund, campaign or deployment was performed during implementation.
 
 ## Verification
